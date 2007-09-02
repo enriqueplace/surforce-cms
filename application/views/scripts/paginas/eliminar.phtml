@@ -11,7 +11,7 @@
 
 <?php if ($this->pagina) :?>
 
-	<form action="<?php echo $this->baseUrl ?>/paginas/eliminar" method="post">
+	<form action="<?php echo $this->baseUrl ?>/paginas/paginas/eliminar" method="post">
 		<p>¿Está seguro que quiere eliminar la pagina '<?php echo $this->escape($this->pagina->id); ?>'?</p>
 		<div id="boton_formulario">
 			<input type="hidden" name="id" value="<?php echo $this->pagina->id; ?>" />

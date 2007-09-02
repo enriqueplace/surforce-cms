@@ -51,7 +51,7 @@
 
 <div id="contenido">
 	<h2><?php echo $this->escape($this->subtitle); ?></h2>
-	<form action="<?php echo $this->baseUrl ?>/noticias/<?php echo $this->action; ?>" method="post">
+	<form action="<?php echo $this->baseUrl ?>/noticias/noticias/<?php echo $this->action; ?>" method="post">
 		<div>
 			<label for="titulo">titulo:</label>
 			<input type="text" name="titulo" size="100" value="<?php echo $this->escape(trim($this->noticia->titulo));?>"/>

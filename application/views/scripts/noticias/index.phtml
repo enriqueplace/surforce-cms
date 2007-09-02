@@ -10,7 +10,7 @@
 <h2><?php echo $this->escape($this->subtitle); ?></h2>
 <?php if ($this->usuarioLogueado): ?>
 	<div id="menu-opciones">
-  		<p><a href="<?php echo $this->baseUrl; ?>/noticias/agregar">Agregar noticia</a></p>
+  		<p><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/agregar">Agregar noticia</a></p>
 	</div>
 <?php endif; ?>
 
@@ -25,9 +25,9 @@
     	<br>
       <div id="noticia-opciones">
       	Acciones:
-        <a href="<?php echo $this->baseUrl; ?>/noticias/ver/id/<?php echo $noticia->id;?>">Ver</a> |
-        <a href="<?php echo $this->baseUrl; ?>/noticias/modificar/id/<?php echo $noticia->id;?>">Modificar</a> |
-        <a href="<?php echo $this->baseUrl; ?>/noticias/eliminar/id/<?php echo $noticia->id;?>">Eliminar</a>
+        <a href="<?php echo $this->baseUrl; ?>/noticias/noticias/ver/id/<?php echo $noticia->id;?>">Ver</a> |
+        <a href="<?php echo $this->baseUrl; ?>/noticias/noticias/modificar/id/<?php echo $noticia->id;?>">Modificar</a> |
+        <a href="<?php echo $this->baseUrl; ?>/noticias/noticias/eliminar/id/<?php echo $noticia->id;?>">Eliminar</a>
       </div>
     <?php endif; ?>
 	<HR>
@@ -35,7 +35,7 @@
 
 
 <?php if ($this->usuarioLogueado): ?>
-  <p><a href="<?php echo $this->baseUrl; ?>/noticias/agregar">Agregar noticia</a></p>
+  <p><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/agregar">Agregar noticia</a></p>
 <?php endif; ?>
 
 </div>

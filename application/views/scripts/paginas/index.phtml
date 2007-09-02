@@ -10,7 +10,7 @@
 <h2><?php echo $this->escape($this->subtitle); ?></h2>
 
 <?php if ($this->usuarioLogueado): ?>
-	<p><a href="<?php echo $this->baseUrl; ?>/paginas/agregar">Agregar página</a></p>
+	<p><a href="<?php echo $this->baseUrl; ?>/paginas/paginas/agregar">Agregar página</a></p>
 <?php endif; ?>
 
 	<table>
@@ -28,14 +28,14 @@
 	<?php
 	foreach( $this->paginas as $pagina ) : ?>
 			<tr>
-				<td><a href="<?php echo $this->baseUrl . "/paginas/ver/id/" . $pagina->id; ?> "><?php echo $this->escape($pagina->id);?></A></td>
+				<td><a href="<?php echo $this->baseUrl . "/paginas/paginas/ver/id/" . $pagina->id; ?> "><?php echo $this->escape($pagina->id);?></A></td>
 				<td><?php echo $this->escape($pagina->fecha);?></td>
-				<td><a href="<?php echo $this->baseUrl . "/paginas/ver/id/" . $pagina->id; ?> "><?php echo $this->escape($pagina->titulo);?></A></td>
+				<td><a href="<?php echo $this->baseUrl . "/paginas/paginas/ver/id/" . $pagina->id; ?> "><?php echo $this->escape($pagina->titulo);?></A></td>
 
 				<?php if ($this->usuarioLogueado): ?>
-					<td><a href="<?php echo $this->baseUrl; ?>/paginas/ver/id/<?php echo $pagina->id;?>">Ver</a></td>
-					<td><a href="<?php echo $this->baseUrl; ?>/paginas/modificar/id/<?php echo $pagina->id;?>">Modificar</a></td>
-					<td><a href="<?php echo $this->baseUrl; ?>/paginas/eliminar/id/<?php echo $pagina->id;?>">Eliminar</a></td>
+					<td><a href="<?php echo $this->baseUrl; ?>/paginas/paginas/ver/id/<?php echo $pagina->id;?>">Ver</a></td>
+					<td><a href="<?php echo $this->baseUrl; ?>/paginas/paginas/modificar/id/<?php echo $pagina->id;?>">Modificar</a></td>
+					<td><a href="<?php echo $this->baseUrl; ?>/paginas/paginas/eliminar/id/<?php echo $pagina->id;?>">Eliminar</a></td>
 				<?php endif; ?>
 
 			</tr>
@@ -43,7 +43,7 @@
 	</table>
 
 <?php if ($this->usuarioLogueado): ?>
-	<p><a href="<?php echo $this->baseUrl; ?>/paginas/agregar">Agregar página</a></p>
+	<p><a href="<?php echo $this->baseUrl; ?>/paginas/paginas/agregar">Agregar página</a></p>
 <?php endif; ?>
 
 </div>

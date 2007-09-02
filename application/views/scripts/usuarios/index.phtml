@@ -10,7 +10,7 @@
 <h2><?php echo $this->escape($this->subtitle); ?></h2>
 
 <?php if ($this->usuarioLogueado): ?>
-	<p><a href="<?php echo $this->baseUrl; ?>/usuarios/agregar">Agregar Usuario</a></p>
+	<p><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/agregar">Agregar Usuario</a></p>
 <?php endif; ?>
 
 	<table>
@@ -34,9 +34,9 @@
 
 			<?php if ($this->usuarioLogueado): ?>
 				<td><?php echo $this->escape($usuario->mail);?></td>
-				<td><a href="<?php echo $this->baseUrl; ?>/usuarios/ver/id/<?php echo $usuario->id;?>">Ver</a></td>
-				<td><a href="<?php echo $this->baseUrl; ?>/usuarios/modificar/id/<?php echo $usuario->id;?>">Modificar</a></td>
-				<td><a href="<?php echo $this->baseUrl; ?>/usuarios/eliminar/id/<?php echo $usuario->id;?>">Eliminar</a></td>
+				<td><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/ver/id/<?php echo $usuario->id;?>">Ver</a></td>
+				<td><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/modificar/id/<?php echo $usuario->id;?>">Modificar</a></td>
+				<td><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/eliminar/id/<?php echo $usuario->id;?>">Eliminar</a></td>
 			<?php endif; ?>
 
 			</tr>
@@ -44,7 +44,7 @@
 	</table>
 
 <?php if ($this->usuarioLogueado): ?>
-	<p><a href="<?php echo $this->baseUrl; ?>/usuarios/agregar">Agregar Usuario</a></p>
+	<p><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/agregar">Agregar Usuario</a></p>
 <?php endif; ?>
 
 </div>

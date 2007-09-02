@@ -11,7 +11,7 @@
 	<table>
 		<tr>
 			<th>Selector</th>
-			<th>Descripci�n</th>
+			<th>Descripción</th>
 			<th colspan="3">Acciones</th>
 		</tr>
 
@@ -20,8 +20,8 @@
 						<tr>
 						<td><?php echo $this->escape($selector->selector); ?></td>
 						<td><?php echo $this->escape($selector->descripcion);?></td>
-						<td><a href="<?php echo $this->baseUrl ?>/configuraciones/ver/id/<?php echo $this->escape($selector->id_selector)?>">Ver</a></td>
-						<td><a href="<?php echo $this->baseUrl ?>/configuraciones/modificar/id/<?php echo $this->escape($selector->id_selector)?>">Modificar</a></td>
+						<td><a href="<?php echo $this->baseUrl ?>/configuraciones/configuraciones/ver/id/<?php echo $this->escape($selector->id_selector)?>">Ver</a></td>
+						<td><a href="<?php echo $this->baseUrl ?>/configuraciones/configuraciones/modificar/id/<?php echo $this->escape($selector->id_selector)?>">Modificar</a></td>
 						<td>Eliminar</td>
 						</tr>
 					 <?php endforeach; ?>

@@ -10,7 +10,7 @@
 <h2><?php echo $this->escape($this->subtitle); ?></h2>
 
 <?php if ($this->usuarioLogueado): ?>
-	<p><a href="<?php echo $this->baseUrl; ?>/faqs/agregar">Agregar faq</a></p>
+	<p><a href="<?php echo $this->baseUrl; ?>/faqs/faqs/agregar">Agregar faq</a></p>
 <?php endif; ?>
 
 	<table>
@@ -32,9 +32,9 @@
 				<td><?php echo $this->escape($faq->respuesta);?></td>
 
 				<?php if ($this->usuarioLogueado): ?>
-					<td><a href="<?php echo $this->baseUrl; ?>/faqs/ver/id/<?php echo $faq->id;?>">Ver</a></td>
-					<td><a href="<?php echo $this->baseUrl; ?>/faqs/modificar/id/<?php echo $faq->id;?>">Modificar</a></td>
-					<td><a href="<?php echo $this->baseUrl; ?>/faqs/eliminar/id/<?php echo $faq->id;?>">Eliminar</a></td>
+					<td><a href="<?php echo $this->baseUrl; ?>/faqs/faqs/ver/id/<?php echo $faq->id;?>">Ver</a></td>
+					<td><a href="<?php echo $this->baseUrl; ?>/faqs/faqs/modificar/id/<?php echo $faq->id;?>">Modificar</a></td>
+					<td><a href="<?php echo $this->baseUrl; ?>/faqs/faqs/eliminar/id/<?php echo $faq->id;?>">Eliminar</a></td>
 				<?php endif; ?>
 
 			</tr>
@@ -42,7 +42,7 @@
 	</table>
 
 <?php if ($this->usuarioLogueado): ?>
-	<p><a href="<?php echo $this->baseUrl; ?>/faqs/agregar">Agregar faq</a></p>
+	<p><a href="<?php echo $this->baseUrl; ?>/faqs/faqs/agregar">Agregar faq</a></p>
 <?php endif; ?>
 
 </div>

@@ -9,7 +9,7 @@
 <div id="contenido">
 <h2><?php echo $this->escape($this->subtitle); ?></h2>
 
-<form action="<?php echo $this->baseUrl ?>/usuarios/<?php echo $this->action; ?>" method="post">
+<form action="<?php echo $this->baseUrl ?>/usuarios/usuarios/<?php echo $this->action; ?>" method="post">
 	<div>
 		<label for="usuario">Usuario:</label>
 		<input type="text" name="usuario" value="<?php echo $this->escape(trim($this->usuario->usuario));?>"/>
