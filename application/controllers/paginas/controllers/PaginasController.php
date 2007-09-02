@@ -1,11 +1,11 @@
 <?php
-class NoticiasController extends Zend_Controller_Action{
+class Paginas_PaginasController extends Zend_Controller_Action{
 
 	function init(){
-
 		$this->initView();
 		$this->view->baseUrl = $this->_request->getBaseUrl();
-		Zend_Loader::loadClass('Noticias');
+		$this->view->setScriptPath('./application/views/scripts/');
+		Zend_Loader::loadClass('Paginas');
 		$this->view->user = Zend_Auth::getInstance()->getIdentity();
 
 		#factorizando la instancia de 'personalizacion'
@@ -23,57 +23,57 @@ class NoticiasController extends Zend_Controller_Action{
 
 	function indexAction(){
 		//$info = Zend_Registry::get('personalizacion');
-		$this->view->subtitle = $this->info->sitio->noticias->index->titulo;
-		$noticias = new Noticias();
-		$where = array();
-		$order = "fecha DESC";
-		$this->view->noticias = $noticias->fetchAll($where, $order);
+		$this->view->subtitle = $this->info->sitio->paginas->index->titulo;
+		$paginas = new Paginas();
+		$this->view->paginas = $paginas->fetchAll();
 		$this->render();
 	}
 
 	function agregarAction(){
 		//$info = Zend_Registry::get('personalizacion');
 		if( !$this->view->usuarioLogueado){
-			die( $this->info->sitio->noticias->agregar->msgRestringido);
+			die( $this->info->sitio->paginas->agregar->msgRestringido);
 		}
 
-		$this->view->subtitle = $this->info->sitio->noticias->agregar->titulo;
+		$this->view->subtitle = $this->info->sitio->paginas->agregar->titulo;
+
 		if ($this->_request->isPost()) {
 			Zend_Loader::loadClass('Zend_Filter_StripTags');
 			$filter 	= new Zend_Filter_StripTags();
 
-			$titulo 		= trim($filter->filter($this->_request->getPost('titulo')));
-			$contenido 	= trim( $this->_request->getPost('contenido') );
+			$titulo 	= trim($filter->filter($this->_request->getPost('titulo')));
+			$contenido 	= $this->_request->getPost('contenido');
 
 			if( $titulo != '' && $contenido ) {
 				$data = array(
 					'titulo' 	=> $titulo,
 					'contenido' 	=> $contenido
 				);
-				$noticia = new Noticias();
-				$noticia->insert( $data );
-				$this->_redirect('/noticias/');
+				$pagina = new Paginas();
+				$pagina->insert( $data );
+				$this->_redirect('/paginas/paginas/');
 				return;
 			}
 		}
-		$this->view->noticia = new stdClass();
-		$this->view->noticia->id = null;
-		$this->view->noticia->titulo = '';
-		$this->view->noticia->contenido = '';
 
-		$this->view->action = $this->info->sitio->noticias->agregar->action;
-		$this->view->buttonText = $this->info->sitio->noticias->agregar->buttonText;
+		$this->view->pagina = new stdClass();
+		$this->view->pagina->id = null;
+		$this->view->pagina->titulo = '';
+		$this->view->pagina->contenido = '';
+
+		$this->view->action = $this->info->sitio->paginas->agregar->action;
+		$this->view->buttonText = $this->info->sitio->paginas->agregar->buttonText;
 		$this->render();
 	}
 
 	function modificarAction(){
 		//$info = Zend_Registry::get('personalizacion');
 		if( !$this->view->usuarioLogueado){
-			die( $this->info->sitio->noticias->modificar->msgRestringido );
+			die( $this->info->sitio->paginas->modificar->msgRestringido);
 		}
 
-		$this->view->subtitle = $this->info->sitio->noticias->modificar->titulo;
-		$eNoticia = new Noticias();
+		$this->view->subtitle = $this->info->sitio->paginas->modificar->titulo;
+		$eNoticia = new Paginas();
 		if ($this->_request->isPost()) {
 			Zend_Loader::loadClass('Zend_Filter_StripTags');
 
@@ -81,7 +81,7 @@ class NoticiasController extends Zend_Controller_Action{
 
 			$id 			= 	(int)$this->_request->getPost('id');
 			$titulo	 	= trim($filter->filter($this->_request->getPost('titulo')));
-			$contenido 	= trim( $this->_request->getPost('contenido') );
+			$contenido	= trim( $this->_request->getPost('contenido'));
 
 			if ($id !== false) {
 				if ($titulo != '' && $contenido != '' ) {
@@ -91,20 +91,20 @@ class NoticiasController extends Zend_Controller_Action{
 					);
 					$where = 'id = ' . $id;
 					$eNoticia->update($data, $where);
-					$this->_redirect('/noticias/');
+					$this->_redirect('/paginas/paginas/');
 					return;
 				} else {
-					$this->view->noticia = $eNoticia->fetchRow('id='.$id);
+					$this->view->paginas = $eNoticia->fetchRow('id='.$id);
 				}
 			}
 		} else {
 			$id = (int)$this->_request->getParam('id', 0);
 			if ($id > 0) {
-				$this->view->noticia = $eNoticia->fetchRow('id='.$id);
+				$this->view->pagina = $eNoticia->fetchRow('id='.$id);
 			}
 		}
-		$this->view->action = $this->info->sitio->noticias->modificar->action;
-		$this->view->buttonText = $this->info->sitio->noticias->modificar->buttonText;
+		$this->view->action = $this->info->sitio->paginas->modificar->action;
+		$this->view->buttonText = $this->info->sitio->paginas->modificar->buttonText;
 
 		$this->render();
 	}
@@ -112,11 +112,11 @@ class NoticiasController extends Zend_Controller_Action{
 	function eliminarAction(){
 		//$info = Zend_Registry::get('personalizacion');
 		if( !$this->view->usuarioLogueado){
-			die( $this->info->sitio->noticias->eliminar->msgRestringido );
+			die( $this->info->sitio->paginas->eliminar->msgRestringido);
 		}
 
-		$this->view->subtitle = $this->info->sitio->noticias->eliminar->titulo;
-		$noticia = new Noticias();
+		$this->view->subtitle = $this->info->sitio->paginas->eliminar->titulo;
+		$pagina = new Paginas();
 
 		if ($this->_request->isPost()) {
 			Zend_Loader::loadClass('Zend_Filter_Alpha');
@@ -127,28 +127,28 @@ class NoticiasController extends Zend_Controller_Action{
 
 			if ($del == 'Si' && $id > 0) {
 				$where = 'id = ' . $id;
-				$rows_affected = $noticia->delete($where);
+				$rows_affected = $pagina->delete($where);
 			}
 		} else {
 			$id = (int)$this->_request->getParam('id');
 			if ($id > 0) {
-				$this->view->noticia = $noticia->fetchRow('id='.$id);
-				if ($this->view->noticia->id > 0) {
+				$this->view->pagina = $pagina->fetchRow('id='.$id);
+				if ($this->view->pagina->id > 0) {
 					$this->render();
 					return;
 				}
 			}
 		}
-		$this->_redirect('/noticias/');
+		$this->_redirect('/paginas/paginas/');
 	}
 
 	function verAction(){
 		//$info = Zend_Registry::get('personalizacion');
-		$this->view->subtitle = $this->info->sitio->noticias->ver->titulo;
-		$noticia = new Noticias();
+		$this->view->subtitle = $this->info->sitio->paginas->ver->titulo;
+		$pagina = new Paginas();
 		$id = (int)$this->_request->getParam('id', 0);
 		if ($id > 0) {
-			$this->view->noticia = $noticia->fetchRow('id='.$id);
+			$this->view->pagina = $pagina->fetchRow('id='.$id);
 		}
 		$this->render();
 	}

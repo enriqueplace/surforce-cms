@@ -1,9 +1,10 @@
 <?php
-class MenuController extends Zend_Controller_Action{
+class Menu_MenuController extends Zend_Controller_Action{
 
 	function init(){
 		$this->initView();
 		$this->view->baseUrl = $this->_request->getBaseUrl();
+		$this->view->setScriptPath('./application/views/scripts/');
 		Zend_Loader::loadClass('Menu');
 		$this->view->user = Zend_Auth::getInstance()->getIdentity();
 
@@ -92,7 +93,7 @@ class MenuController extends Zend_Controller_Action{
 				}
 			}
 		}
-		$this->_redirect('/menu/');
+		$this->_redirect('/menu/menu/');
 	}
 
 	function verAction(){
@@ -142,7 +143,7 @@ class MenuController extends Zend_Controller_Action{
 					$eItem->insert($data);
 				}
 
-				$this->_redirect('/menu/');
+				$this->_redirect('/menu/menu/');
 				return;
 			}
 		} else {

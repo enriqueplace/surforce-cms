@@ -1,9 +1,10 @@
 <?php
-class ConfiguracionesController extends Zend_Controller_Action{
+class Configuraciones_ConfiguracionesController extends Zend_Controller_Action{
 
 	function init(){
 		$this->initView();
 		$this->view->baseUrl = $this->_request->getBaseUrl();
+		$this->view->setScriptPath('./application/views/scripts/');
 		Zend_Loader::loadClass('Selectores');
 		Zend_Loader::loadClass('Propiedades');
 		Zend_Loader::loadClass('PropiedadesSelectores');
@@ -105,7 +106,7 @@ class ConfiguracionesController extends Zend_Controller_Action{
         				exit;
     				}
 
-					$this->_redirect('/configuraciones/');
+					$this->_redirect('/configuraciones/configuraciones/');
 					return;
 				} else {
 					$this->view->selector = $eSelector->fetchRow('id_selector='.$id);

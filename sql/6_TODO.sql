@@ -40,11 +40,11 @@ CREATE TABLE `menu` (
 -- Volcar la base de datos para la tabla `menu`
 --
 
-INSERT INTO `menu` VALUES (1, 'noticias', '/noticias/', 1, '1', 0x31);
-INSERT INTO `menu` VALUES (2, 'FAQ', '/faqs/', 2, '1', 0x31);
+INSERT INTO `menu` VALUES (1, 'noticias', '/noticias/noticias/', 1, '1', 0x31);
+INSERT INTO `menu` VALUES (2, 'FAQ', '/faqs/faqs/', 2, '1', 0x31);
 INSERT INTO `menu` VALUES (5, 'home', '/', 0, '1', 0x31);
-INSERT INTO `menu` VALUES (6, 'Introducción', '/paginas/ver/id/7', 4, '1', 0x31);
-INSERT INTO `menu` VALUES (7, 'Investigación', '/paginas/ver/id/8', 5, '1', 0x31);
+INSERT INTO `menu` VALUES (6, 'Introducción', '/paginas/paginas/ver/id/7', 4, '1', 0x31);
+INSERT INTO `menu` VALUES (7, 'Investigación', '/paginas/paginas/ver/id/8', 5, '1', 0x31);
 
 -- --------------------------------------------------------
 

@@ -1,9 +1,10 @@
 <?php
-class UsuariosController extends Zend_Controller_Action{
+class Usuarios_UsuariosController extends Zend_Controller_Action{
 
 	function init(){
 		$this->initView();
 		$this->view->baseUrl = $this->_request->getBaseUrl();
+		$this->view->setScriptPath('./application/views/scripts/');
 		Zend_Loader::loadClass('Usuarios');
 		$this->view->user = Zend_Auth::getInstance()->getIdentity();
 
@@ -57,7 +58,7 @@ class UsuariosController extends Zend_Controller_Action{
 				);
 				$usuario = new Usuarios();
 				$usuario->insert($data);
-				$this->_redirect('/usuarios/');
+				$this->_redirect('/usuarios/usuarios/');
 				return;
 			}
 		}
@@ -101,7 +102,7 @@ class UsuariosController extends Zend_Controller_Action{
 					);
 					$where = 'id = ' . $id;
 					$eUsuario->update($data, $where);
-					$this->_redirect('/usuarios/');
+					$this->_redirect('/usuarios/usuarios/');
 					return;
 				} else {
 					$this->view->usuario = $eUsuario->fetchRow('id='.$id);
@@ -146,7 +147,7 @@ class UsuariosController extends Zend_Controller_Action{
 				}
 			}
 		}
-		$this->_redirect('/usuarios/');
+		$this->_redirect('/usuarios/usuarios/');
 
 	}
 

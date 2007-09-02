@@ -1,9 +1,10 @@
 <?php
-class FaqsController extends Zend_Controller_Action{
+class Faqs_FaqsController extends Zend_Controller_Action{
 
 	function init(){
 		$this->initView();
 		$this->view->baseUrl = $this->_request->getBaseUrl();
+		$this->view->setScriptPath('./application/views/scripts/');
 		Zend_Loader::loadClass('Faqs');
 		$this->view->user = Zend_Auth::getInstance()->getIdentity();
 
@@ -50,7 +51,7 @@ class FaqsController extends Zend_Controller_Action{
 				);
 				$faq = new Faqs();
 				$faq->insert( $data );
-				$this->_redirect('/faqs/');
+				$this->_redirect('/faqs/faqs/');
 				return;
 			}
 		}
@@ -89,7 +90,7 @@ class FaqsController extends Zend_Controller_Action{
 					);
 					$where = 'id = ' . $id;
 					$eFAQ->update($data, $where);
-					$this->_redirect('/faqs/');
+					$this->_redirect('/faqs/faqs/');
 					return;
 				} else {
 					$this->view->faq = $eFAQ->fetchRow('id='.$id);
@@ -137,7 +138,7 @@ class FaqsController extends Zend_Controller_Action{
 				}
 			}
 		}
-		$this->_redirect('/faqs/');
+		$this->_redirect('/faqs/faqs/');
 	}
 
 	function verAction(){

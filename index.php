@@ -30,13 +30,12 @@ Zend_Registry::set('dbAdapter', $db);
 // Setup controller
 $frontController = Zend_Controller_Front::getInstance();
 $frontController->throwExceptions(true);
-$frontController->setControllerDirectory('./application/controllers');
+$frontController->addModuleDirectory('./application/');
 
 // run!
 try {
-    $frontController->dispatch();
-} catch (Zend_Exception $e) {
-    echo "Message: " . $e->getMessage() . "\n";
+	$frontController->dispatch();
+} catch (Exception $e) {
+	echo "Message: " . $e->getMessage() . "\n";
 }
-
 ?>
