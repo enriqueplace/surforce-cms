@@ -40,12 +40,16 @@ CREATE TABLE `menu` (
 -- Volcar la base de datos para la tabla `menu`
 --
 
-INSERT INTO `menu` VALUES (1, 'noticias', '/noticias/noticias/', 1, '1', 0x31);
-INSERT INTO `menu` VALUES (2, 'FAQ', '/faqs/faqs/', 2, '1', 0x31);
-INSERT INTO `menu` VALUES (5, 'home', '/', 0, '1', 0x31);
-INSERT INTO `menu` VALUES (6, 'IntroducciÃ³n', '/paginas/paginas/ver/id/7', 4, '1', 0x31);
-INSERT INTO `menu` VALUES (7, 'InvestigaciÃ³n', '/paginas/paginas/ver/id/8', 5, '1', 0x31);
-
+INSERT INTO `menu` (`id`, `item`, `destino`, `posicion`, `privado`, `estado`) VALUES
+(1, 'Noticias', '/noticias/noticias/', 1, '1', 0x31),
+(2, 'FAQ', '/faqs/faqs/', 10, '0', 0x31),
+(5, 'home', '/', 0, '0', 0x31),
+(6, 'Introducción', '/paginas/paginas/ver/id/7', 4, '0', 0x31),
+(7, 'Investigación', '/paginas/paginas/ver/id/8', 5, '0', 0x31),
+(8, 'Menu', '/menu/menu/', 9, '1', 0x31),
+(9, 'Noticias', '/noticias/noticias/', 8, '1', 0x30),
+(10, 'páginas', '/paginas/paginas/', 7, '1', 0x31),
+(11, 'usuarios', '/usuarios/usuarios/', 12, '1', 0x31);
 -- --------------------------------------------------------
 
 --
