@@ -30,7 +30,7 @@ Zend_Registry::set('dbAdapter', $db);
 // Setup controller
 $frontController = Zend_Controller_Front::getInstance();
 $frontController->throwExceptions(true);
-$frontController->addModuleDirectory('./application/');
+$frontController->addModuleDirectory('./application/modules/');
 
 // run!
 try {
