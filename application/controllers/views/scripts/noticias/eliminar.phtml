@@ -1,0 +1,31 @@
+<?php echo $this->render('header.phtml'); ?>
+
+<div id="cabecera">
+<h1><?php echo $this->escape($this->title); ?></h1>
+</div>
+
+<?php echo $this->render('menu.phtml'); ?>
+
+<div id="contenido">
+<h2><?php echo $this->escape($this->subtitle); ?></h2>
+
+<?php if ($this->noticia) :?>
+
+	<form action="<?php echo $this->baseUrl ?>/noticias/noticias/eliminar" method="post">
+		<p>¿Esta seguro que quiere eliminar la noticia
+		'<?php echo $this->escape($this->noticia->id); ?>'?
+		</p>
+		<div id="boton_formulario">
+			<input type="hidden" name="id" value="<?php echo $this->noticia->id; ?>" />
+			<input type="submit" name="del" value="Si" />
+			<input type="submit" name="del" value="No" />
+		</div>
+	</form>
+
+<?php else: ?>
+	<p>No se pudo encontrar la noticia.</p>
+<?php endif;?>
+</div>
+
+
+<?php echo $this->render('footer.phtml'); ?>

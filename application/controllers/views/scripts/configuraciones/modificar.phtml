@@ -1,0 +1,46 @@
+<?php echo $this->render('header.phtml'); ?>
+
+<div id="cabecera">
+<h1><?php echo $this->escape($this->title); ?></h1>
+</div>
+
+<?php echo $this->render('menu.phtml'); ?>
+
+<div id="contenido">
+<h2><?php echo $this->escape($this->subtitle); ?></h2>
+
+<form action="<?php echo $this->baseUrl ?>/configuraciones/configuraciones/<?php echo $this->action; ?>" method="post">
+	<div>
+		<label for="selector">Selector:</label>
+      <input type="text" name="selector" value="<?php echo $this->escape(trim($this->selector->selector));?>">
+    </div>
+	<div>
+		<label for="descripcion">Descripción:</label>
+		<textarea name="descripcion" cols="30"><?php echo $this->escape(trim($this->selector->descripcion));?></textarea>
+    </div>
+	<h3>Propiedades</h3>
+
+	<div>
+
+	<?php
+		foreach( $this->propiedades as $propiedad ):
+			echo '<label for="'.$this->escape($propiedad->propiedad).'">'.$this->escape($propiedad->propiedad).':</label>';
+			echo '<input type="text" name="'.$this->escape($propiedad->id_propiedad).'" id="'.$this->escape($propiedad->id_propiedad).'" value="';
+				foreach( $this->pSelectores as $pSelector ):
+					if ($this->escape($pSelector->id_propiedad)==$this->escape($propiedad->id_propiedad)):
+						echo $this->escape($pSelector->valor);
+					endif;
+				endforeach;
+			echo '"><br>';
+		endforeach;
+	?>
+	</div>
+	<div id="boton_formulario">
+		<input type="hidden" name="id" value="<?php echo $this->selector->id_selector; ?>" />
+		<input type="submit" name="add" value="<?php echo $this->escape($this->buttonText); ?>" />
+	</div>
+
+</form>
+</div>
+
+<?php echo $this->render('footer.phtml'); ?>

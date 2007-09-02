@@ -1,0 +1,18 @@
+
+
+<?php echo $this->render('header.phtml'); ?>
+
+	<div id="cabecera">
+	<h1><?php echo $this->escape($this->title); ?></h1>
+	</div>
+
+	<?php echo $this->render('menu.phtml'); ?>
+
+	<?php $this->view->addScriptPath(Zend_Registry::get('/noticias/noticias')); ?>
+
+	<div id="contenido">
+		Bienvenido al Content Management System (CMS)
+	</div>
+
+
+<?php echo $this->render('footer.phtml'); ?>

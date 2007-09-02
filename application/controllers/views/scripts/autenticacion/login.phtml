@@ -1,0 +1,35 @@
+<?php echo $this->render('header.phtml'); ?>
+
+
+<div id="login-form">
+
+	<div id="cabecera">
+		<h1><?php echo $this->escape($this->title); ?></h1>
+	</div>
+
+	<?php if(!empty($this->message)) :?>
+
+	<div id="mensaje">
+		<?php echo $this->escape($this->message);?>
+	</div>
+
+	<?php endif; ?>
+
+	<form action="<?php echo $this->baseUrl ?>/autenticacion/autenticacion/login" method="post">
+
+		<div>
+			<label for="usuario">Usuario: </label>
+			<input type="text" name="usuario" value=""/>
+		</div>
+
+		<div>
+			<label for="password">Clave: </label>
+			<input type="password" name="password" value=""/>
+		</div>
+
+		<div id="formbutton">
+			<input type="submit" name="login" value="Iniciar Sesión" />
+		</div>
+
+	</form>
+</div>

@@ -1,0 +1,29 @@
+<?php echo $this->render('header.phtml'); ?>
+
+<div id="cabecera">
+<h1><?php echo $this->escape($this->title); ?></h1>
+</div>
+
+<?php echo $this->render('menu.phtml'); ?>
+
+<div id="contenido">
+<h2><?php echo $this->escape($this->subtitle); ?></h2>
+
+<?php if ($this->pagina) :?>
+
+	<form action="<?php echo $this->baseUrl ?>/paginas/paginas/eliminar" method="post">
+		<p>¿Está seguro que quiere eliminar la pagina '<?php echo $this->escape($this->pagina->id); ?>'?</p>
+		<div id="boton_formulario">
+			<input type="hidden" name="id" value="<?php echo $this->pagina->id; ?>" />
+			<input type="submit" name="del" value="Si" />
+			<input type="submit" name="del" value="No" />
+		</div>
+	</form>
+
+<?php else: ?>
+	<p>No se pudo encontrar la página.</p>
+<?php endif;?>
+</div>
+
+
+<?php echo $this->render('footer.phtml'); ?>
