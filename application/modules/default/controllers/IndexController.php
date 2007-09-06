@@ -1,20 +1,27 @@
 <?php
 
-class IndexController extends Zend_Controller_Action{
+class Blog_IndexController extends Zend_Controller_Action{
 
 	function init(){
+		
+		 // Local to this controller only; affects all actions, as loaded in init:
+        $this->_helper->viewRenderer->setNoRender(true);
+
+        // Globally:
+        $this->_helper->removeHelper('viewRenderer');
+
+        // Also globally, but would need to be in conjunction with the local
+        // version in order to propagate for this controller:
+        Zend_Controller_Front::getInstance()->setParam('noViewRenderer', true);
 		$this->initView();
 		$this->view->baseUrl = $this->_request->getBaseUrl();
-		$this->view->setScriptPath('./application/views/scripts/');
-		$this->view->user = Zend_Auth::getInstance()->getIdentity();
+        $this->view->setScriptPath('./application/views/scripts/');
 	}
 
 	function indexAction(){
-		$info = Zend_Registry::get('personalizacion');
-		$this->view->title = $info->sitio->index->index->titulo;
-		//$this->render();
-		$this->_redirect('/noticias/noticias');
-		return;
+		
+		print $this->view->render('blog/index.phtml');
+		
 	}
 
 }
