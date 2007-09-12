@@ -120,8 +120,10 @@ DIV#pagina-contenido{
 
 DIV#login{
 	text-align:center;
+
 }
 DIV#login-form{
-	text-align:center;
+	text-align:left;
+
 }
 
