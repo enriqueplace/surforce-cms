@@ -1,5 +1,4 @@
 <?php
-
 class Store_ProductController extends Zend_Controller_Action
 
 {
@@ -19,20 +18,20 @@ class Store_ProductController extends Zend_Controller_Action
 		$this->view->baseUrl = $this->_request->getBaseUrl();
         $this->view->setScriptPath('./application/views/scripts/');
     }
-    
+
     public function indexAction()
     {
         print $this->view->render('store/product/productList.phtml');
     }
 
- 
+
 
     public function showListAction()
     {
         echo "Store_ProductController::showAction";
     }
 
-   
+
 
     public function __call($methodName, $args)
     {

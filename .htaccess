@@ -3,3 +3,15 @@ RewriteRule .* index.php
 
 php_flag magic_quotes_gpc off
 php_flag register_globals off
+
+#RewriteEngine on
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule !\.(js|ico|gif|jpg|png|css|swf|xml)$ index.php
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !\.(js|ico|gif|jpg|jpeg|png|css|swf|xml|txt)$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*) index.php
+
