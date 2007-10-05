@@ -15,14 +15,16 @@
 		</div>
 
 		<br>
+		
 		<div>
-			<textarea id="contenido" name="contenido" rows="15" cols="80" style="width: 100%">
-				<?php echo $this->noticia->contenido;?>
-			</textarea>
+		<?php print $this->formFCKeditor( ' contenido' , $this->noticia->contenido); ?>
+			<!--<textarea id="contenido" name="contenido" rows="15" cols="80" style="width: 100%">
+				<?php //echo $this->noticia->contenido;?>
+			</textarea>-->
 		</div>
 		<br>
 
-		<?php print $this->formFCKeditor( ' contenido' , $this->noticia->contenido); ?>
+		
 
 		<div id="boton_formulario">
 			<input type="hidden" name="id" value="<?php echo $this->noticia->id; ?>" />
