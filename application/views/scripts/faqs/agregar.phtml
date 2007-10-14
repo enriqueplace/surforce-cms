@@ -1,29 +1,30 @@
 <?php echo $this->render('header.phtml'); ?>
 
 <div id="cabecera">
-<h1><?php echo $this->escape($this->title); ?></h1>
+  <h1><?php echo $this->escape($this->title); ?></h1>
 </div>
 
 <?php echo $this->render('menu.phtml'); ?>
 
 <div id="contenido">
-	<h2><?php echo $this->escape($this->subtitle); ?></h2>
+  <h2><?php echo $this->escape($this->subtitle); ?></h2>
 
-	<form action="<?php echo $this->baseUrl ?>/faqs/faqs/<?php echo $this->action; ?>" method="post">
-		<div>
-			<label for="pregunta">pregunta:</label>
-			<input type="text" name="pregunta" value="<?php echo $this->escape(trim($this->faq->pregunta));?>"/>
-		</div>
-		<div>
-			<label for="respuesta">respuesta:</label>
-			<input type="text" name="respuesta" value="<?php echo $this->escape($this->faq->respuesta);?>"/>
-		</div>
+  <form action="<?php echo $this->baseUrl ?>/faqs/faqs/<?php echo $this->action; ?>" method="post">
+    <div>
+      <label for="pregunta">Pregunta</label>
+      <input type="text" name="pregunta" size="100" value="<?php echo $this->escape(trim($this->faq->pregunta));?>"/>
+    </div>
+    <br>
+    <div>
+      <label for="respuesta">Respuesta</label>
+      <input type="text" name="respuesta" size="100" value="<?php echo $this->escape($this->faq->respuesta);?>"/>
+    </div>
 
-		<div id="boton_formulario">
-			<input type="hidden" name="id" value="<?php echo $this->faq->id; ?>" />
-			<input type="submit" name="add" value="<?php echo $this->escape($this->buttonText); ?>" />
-		</div>
+    <div id="boton_formulario">
+      <input type="hidden" name="id" value="<?php echo $this->faq->id; ?>" />
+      <input type="submit" name="add" value="<?php echo $this->escape($this->buttonText); ?>" />
+    </div>
 
-	</form>
+  </form>
 </div>
 <?php echo $this->render('footer.phtml'); ?>
