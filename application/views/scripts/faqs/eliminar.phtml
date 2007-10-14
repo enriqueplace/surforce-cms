@@ -10,19 +10,18 @@
 <h2><?php echo $this->escape($this->subtitle); ?></h2>
 <?php if ($this->faq) :?>
 
-	<form action="<?php echo $this->baseUrl ?>/faqs/faqs/eliminar" method="post">
-		<p>¿Está seguro que quiere eliminar la FAQ
-		'<?php echo $this->escape($this->faq->id); ?>'?
-		</p>
-		<div id="boton_formulario">
-			<input type="hidden" name="id" value="<?php echo $this->faq->id; ?>" />
-			<input type="submit" name="del" value="Si" />
-			<input type="submit" name="del" value="No" />
-		</div>
-	</form>
+  <form action="<?php echo $this->baseUrl ?>/faqs/faqs/eliminar" method="post">
+    <p>¿Está seguro que quiere eliminar la FAQ '<?php echo $this->escape($this->faq->pregunta); ?>'?
+    </p>
+    <div id="boton_formulario">
+      <input type="hidden" name="id" value="<?php echo $this->faq->id; ?>" />
+      <input type="submit" name="del" value="Si" />
+      <input type="submit" name="del" value="No" />
+    </div>
+  </form>
 
 <?php else: ?>
-	<p>No se pudo encontrar la FAQ.</p>
+  <p>No se pudo encontrar la FAQ.</p>
 <?php endif;?>
 </div>
 
