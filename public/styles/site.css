@@ -90,7 +90,7 @@ DIV#boton_formulario{
   width:205px;
 }
 DIV#boton_formulario INPUT{
-  float:right;
+  float:left;
 }
 
 DIV#logueado{
