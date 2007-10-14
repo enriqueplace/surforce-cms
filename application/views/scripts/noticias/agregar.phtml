@@ -1,36 +1,33 @@
 <?php echo $this->render('header.phtml'); ?>
 
 <div id="cabecera">
-	<h1><?php echo $this->escape($this->title); ?></h1>
+  <h1><?php echo $this->escape($this->title); ?></h1>
 </div>
 
 <?php echo $this->render('menu.phtml'); ?>
 
 <div id="contenido">
-	<h2><?php echo $this->escape($this->subtitle); ?></h2>
-	<form action="<?php echo $this->baseUrl ?>/noticias/noticias/<?php echo $this->action; ?>" method="post">
-		<div>
-			<label for="titulo">titulo:</label>
-			<input type="text" name="titulo" size="100" value="<?php echo $this->escape(trim($this->noticia->titulo));?>"/>
-		</div>
+  <h2><?php echo $this->escape($this->subtitle); ?></h2>
 
-		<br>
-		
-		<div>
-		<?php print $this->formFCKeditor( ' contenido' , $this->noticia->contenido); ?>
-			<!--<textarea id="contenido" name="contenido" rows="15" cols="80" style="width: 100%">
-				<?php //echo $this->noticia->contenido;?>
-			</textarea>-->
-		</div>
-		<br>
+  <form action="<?php echo $this->baseUrl ?>/noticias/noticias/<?php echo $this->action; ?>" method="post">
+    <div>
+      <label for="titulo">titulo</label>
+      <input type="text" name="titulo" size="90" value="<?php echo $this->escape(trim($this->noticia->titulo));?>"/>
+    </div>
 
-		
+    <br>
 
-		<div id="boton_formulario">
-			<input type="hidden" name="id" value="<?php echo $this->noticia->id; ?>" />
-			<input type="submit" name="add" value="<?php echo $this->escape($this->buttonText); ?>" />
-		</div>
+    <div>
+      <?php print $this->formFCKeditor( ' contenido' , $this->noticia->contenido); ?>
+    </div>
 
-	</form>
+    <br>
+
+    <div id="boton_formulario">
+      <input type="hidden" name="id" value="<?php echo $this->noticia->id; ?>" />
+      <input type="submit" name="add" value="<?php echo $this->escape($this->buttonText); ?>" />
+    </div>
+
+  </form>
 </div>
 <?php echo $this->render('footer.phtml'); ?>

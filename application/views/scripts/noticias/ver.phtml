@@ -7,29 +7,29 @@
 <?php echo $this->render('menu.phtml'); ?>
 
 <div id="contenido">
-	<h2><?php echo $this->escape($this->subtitle); ?></h2>
+  <h2><?php echo $this->escape($this->subtitle); ?></h2>
 
-	<?php if ($this->usuarioLogueado): ?>
-	<table>
-		<tr>
-			<td><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/modificar/id/<?php echo $this->noticia->id;?>">Modificar</a></td>
-			<td><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/eliminar/id/<?php echo $this->noticia->id;?>">Eliminar</a></td>
-		</tr>
-	</table>
-	<?php endif; ?>
+  <?php if ($this->usuarioLogueado): ?>
+  <table>
+    <tr>
+      <td><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/modificar/id/<?php echo $this->noticia->id;?>">Modificar</a></td>
+      <td><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/eliminar/id/<?php echo $this->noticia->id;?>">Eliminar</a></td>
+    </tr>
+  </table>
+  <?php endif; ?>
 
-	<div>
-		<label for="id">Id:&nbsp;</label>
-		<?php echo $this->escape(trim($this->noticia->id));?>
-	</div>
-	<div>
-		<label for="titulo">titulo:&nbsp;</label>
-		<?php echo $this->escape(trim($this->noticia->titulo));?>
-	</div>
-	<div>
-		<label for="contenido">contenido:&nbsp;</label>
-		<?php echo $this->noticia->contenido;?>
-	</div>
+  <div>
+    <label for="id">Id:&nbsp;</label>
+    <?php echo $this->escape(trim($this->noticia->id));?>
+  </div>
+  <div>
+    <label for="titulo">titulo:&nbsp;</label>
+    <?php echo $this->escape(trim($this->noticia->titulo));?>
+  </div>
+  <div>
+    <label for="contenido">contenido:&nbsp;</label><br>
+    <?php echo $this->noticia->contenido;?>
+  </div>
 
 </div>
 
