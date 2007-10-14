@@ -1,4 +1,4 @@
-﻿FCKConfig.AutoDetectLanguage = false ;
+FCKConfig.AutoDetectLanguage = false ;
 /*FCKConfig.DefaultLanguage = "es" ;*/
 FCKConfig.SkinPath = FCKConfig.BasePath + 'skins/default/' ;
 FCKConfig.UseBROnCarriageReturn	= true ;	// IE only.

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * FCKeditor - The text editor for Internet - http://www.fckeditor.net
  * Copyright (C) 2003-2007 Frederico Caldeira Knabben
  *
@@ -47,14 +47,14 @@ FCKConfig.PreloadImages = [ FCKConfig.SkinPath + 'images/toolbar.start.gif', FCK
 FCKConfig.PluginsPath = FCKConfig.BasePath + 'plugins/' ;
 
 // FCKConfig.Plugins.Add( 'autogrow' ) ;
-FCKConfig.AutoGrowMax = 400 ;
+FCKConfig.AutoGrowMax = 500 ;
 
 // FCKConfig.ProtectedSource.Add( /<%[\s\S]*?%>/g ) ;	// ASP style server side code <%...%>
 // FCKConfig.ProtectedSource.Add( /<\?[\s\S]*?\?>/g ) ;	// PHP style server side code
 // FCKConfig.ProtectedSource.Add( /(<asp:[^\>]+>[\s|\S]*?<\/asp:[^\>]+>)|(<asp:[^\>]+\/>)/gi ) ;	// ASP.Net style tags <asp:control>
 
 FCKConfig.AutoDetectLanguage	= true ;
-FCKConfig.DefaultLanguage		= 'en' ;
+FCKConfig.DefaultLanguage		= 'es' ;
 FCKConfig.ContentLangDirection	= 'ltr' ;
 
 FCKConfig.ProcessHTMLEntities	= true ;
@@ -92,47 +92,42 @@ FCKConfig.TemplateReplaceCheckbox = true ;
 FCKConfig.ToolbarLocation = 'In' ;
 
 FCKConfig.ToolbarSets["Default"] = [
-	['Source','DocProps','-','Save','NewPage','Preview','-','Templates'],
-	['Cut','Copy','Paste','PasteText','PasteWord','-','Print','SpellCheck'],
-	['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
-	['Form','Checkbox','Radio','TextField','Textarea','Select','Button','ImageButton','HiddenField'],
-	'/',
-	['Bold','Italic','Underline','StrikeThrough','-','Subscript','Superscript'],
-	['OrderedList','UnorderedList','-','Outdent','Indent'],
-	['JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],
-	['Link','Unlink','Anchor'],
-	['Image','Flash','Table','Rule','Smiley','SpecialChar','PageBreak'],
-	'/',
-	['Style','FontFormat','FontName','FontSize'],
-	['TextColor','BGColor'],
-	['FitWindow','-','About']
+  ['Source','DocProps','-','Preview','-','Templates'],
+  ['Cut','Copy','Paste','PasteText','PasteWord'], ['Print','SpellCheck','Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+  ['Bold','Italic','Underline','StrikeThrough','-','Subscript','Superscript'],
+  ['OrderedList','UnorderedList','-','Outdent','Indent'],
+  ['JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],
+  ['Link','Unlink','Anchor'],
+  ['Image','Flash','Table','Rule','Smiley','SpecialChar','PageBreak'],  ['TextColor','BGColor'],['FitWindow','-','About'],
+  '/',
+  ['Style','FontFormat','FontName','FontSize']
 ] ;
 
 FCKConfig.ToolbarSets["Basic"] = [
-	['Bold','Italic','-','OrderedList','UnorderedList','-','Link','Unlink','-','About']
+  ['Bold','Italic','-','OrderedList','UnorderedList','-','Link','Unlink','-','About']
 ] ;
 
 FCKConfig.EnterMode = 'p' ;			// p | div | br
 FCKConfig.ShiftEnterMode = 'br' ;	// p | div | br
 
 FCKConfig.Keystrokes = [
-	[ CTRL + 65 /*A*/, true ],
-	[ CTRL + 67 /*C*/, true ],
-	[ CTRL + 70 /*F*/, true ],
-	[ CTRL + 83 /*S*/, true ],
-	[ CTRL + 88 /*X*/, true ],
-	[ CTRL + 86 /*V*/, 'Paste' ],
-	[ SHIFT + 45 /*INS*/, 'Paste' ],
-	[ CTRL + 90 /*Z*/, 'Undo' ],
-	[ CTRL + 89 /*Y*/, 'Redo' ],
-	[ CTRL + SHIFT + 90 /*Z*/, 'Redo' ],
-	[ CTRL + 76 /*L*/, 'Link' ],
-	[ CTRL + 66 /*B*/, 'Bold' ],
-	[ CTRL + 73 /*I*/, 'Italic' ],
-	[ CTRL + 85 /*U*/, 'Underline' ],
-	[ CTRL + SHIFT + 83 /*S*/, 'Save' ],
-	[ CTRL + ALT + 13 /*ENTER*/, 'FitWindow' ],
-	[ CTRL + 9 /*TAB*/, 'Source' ]
+  [ CTRL + 65 /*A*/, true ],
+  [ CTRL + 67 /*C*/, true ],
+  [ CTRL + 70 /*F*/, true ],
+  [ CTRL + 83 /*S*/, true ],
+  [ CTRL + 88 /*X*/, true ],
+  [ CTRL + 86 /*V*/, 'Paste' ],
+  [ SHIFT + 45 /*INS*/, 'Paste' ],
+  [ CTRL + 90 /*Z*/, 'Undo' ],
+  [ CTRL + 89 /*Y*/, 'Redo' ],
+  [ CTRL + SHIFT + 90 /*Z*/, 'Redo' ],
+  [ CTRL + 76 /*L*/, 'Link' ],
+  [ CTRL + 66 /*B*/, 'Bold' ],
+  [ CTRL + 73 /*I*/, 'Italic' ],
+  [ CTRL + 85 /*U*/, 'Underline' ],
+  [ CTRL + SHIFT + 83 /*S*/, 'Save' ],
+  [ CTRL + ALT + 13 /*ENTER*/, 'FitWindow' ],
+  [ CTRL + 9 /*TAB*/, 'Source' ]
 ] ;
 
 FCKConfig.ContextMenu = ['Generic','Link','Anchor','Image','Flash','Select','Textarea','Checkbox','Radio','TextField','HiddenField','ImageButton','Button','BulletedList','NumberedList','Table','Form'] ;

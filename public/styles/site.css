@@ -1,7 +1,7 @@
 BODY{
-	margin:0;
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-	font-size:11px;
+  margin:0;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size:11px;
 }
 
 H1{
@@ -9,121 +9,121 @@ H1{
 }
 
 A{
-	color:#339933;
+  color:#339933;
 }
 
 DIV#contenedor{
-	margin:0 auto;
+  margin:0 auto;
 }
 
 DIV#cabecera H1{
-	margin:0;
-	padding:0;
-	font-size:22px;
-	color:#CCCCCC;
+  margin:0;
+  padding:0;
+  font-size:22px;
+  color:#CCCCCC;
 }
 
 DIV#cabecera{
-	width:100%;
-	border:1px solid #cccccc;
-	padding:10px;
-	background-color:#EEEEEE;
+  width:100%;
+  border:1px solid #cccccc;
+  padding:10px;
+  background-color:#EEEEEE;
 
 }
 
 DIV#menu ul, DIV#menu li{
-	margin-left:10px;
-	padding:0;
+  margin-left:10px;
+  padding:0;
 }
 
 
 DIV#menu{
-	width:150px;
-	overflow:hidden;
-	float:left;
-	padding:5px;
+  width:150px;
+  overflow:hidden;
+  float:left;
+  padding:5px;
 }
 
 DIV#contenido{
-	width: 550px;
-	padding:15px;
-	float:left;
-	border-left:1px solid #CCCCCC;
+  width: 600px;
+  padding:15px;
+  float:left;
+  border-left:1px solid #CCCCCC;
 }
 
 DIV#pie{
-	clear:both;
-	border-top:1px solid #CCCCCC;
-	text-align:center;
-	width: 100%;
-	background-color:#EEEEEE;
-	padding:5px;
+  clear:both;
+  border-top:1px solid #CCCCCC;
+  text-align:center;
+  width: 100%;
+  background-color:#EEEEEE;
+  padding:5px;
 }
 
 TH{
-	background-color:#EEEEEE;
-	padding:0 3px 0 3px;
+  background-color:#EEEEEE;
+  padding:0 3px 0 3px;
 }
 
 TD{
-	border-bottom:1px solid #CCCCCC;
-	border-right:1px solid #CCCCCC;
-	padding:2px;
+  border-bottom:1px solid #CCCCCC;
+  border-right:1px solid #CCCCCC;
+  padding:2px;
 }
 
 label {
-	width: 60px;
-	display: block;
-	float: left;
-	text-align:right;
+  width: 60px;
+  display: block;
+  float: left;
+  text-align:left;
 }
 
 DIV#formbutton {
-	margin-left: 100px;
+  margin-left: 100px;
 }
 
 DIV#mensaje{
-	margin: 10px;
-	color:#FF0000;
+  margin: 10px;
+  color:#FF0000;
 }
 DIV#boton_formulario{
-	width:205px;
+  width:205px;
 }
 DIV#boton_formulario INPUT{
-	float:right;
+  float:right;
 }
 
 DIV#logueado{
 }
 
 DIV#noticia-titulo{
-	font-family:Verdana,Arial,Helvetica,sans-serif;
-	font-weight:bold;
-	line-height:1.5em;
-	font-size:20px;
+  font-family:Verdana,Arial,Helvetica,sans-serif;
+  font-weight:bold;
+  line-height:1.5em;
+  font-size:20px;
 }
 DIV#noticia-fecha{
-	font-family:Verdana,Arial,Helvetica,sans-serif;
-	font-size: 10px;
-	padding-bottom:6px;
+  font-family:Verdana,Arial,Helvetica,sans-serif;
+  font-size: 10px;
+  padding-bottom:6px;
 }
 DIV#pagina-titulo{
-	font-family:Verdana,Arial,Helvetica,sans-serif;
-	font-weight:bold;
-	line-height:1.5em;
-	font-size:20px;
+  font-family:Verdana,Arial,Helvetica,sans-serif;
+  font-weight:bold;
+  line-height:1.5em;
+  font-size:20px;
 }
 DIV#pagina-contenido{
-	font-family:Verdana,Arial,Helvetica,sans-serif;
-	padding-bottom:6px;
+  font-family:Verdana,Arial,Helvetica,sans-serif;
+  padding-bottom:6px;
 }
 
 DIV#login{
-	text-align:center;
+  text-align:center;
 
 }
 DIV#login-form{
-	text-align:left;
+  text-align:left;
 
 }
 
