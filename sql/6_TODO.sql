@@ -4,6 +4,7 @@
 -- Estructura de tabla para la tabla `faqs`
 --
 CREATE DATABASE `cms` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
+USE `cms`;
 
 -- phpMyAdmin SQL Dump
 -- version 2.11.1
