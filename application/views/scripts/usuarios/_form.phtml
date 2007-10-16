@@ -1,0 +1,28 @@
+    <h2><?php echo $this->escape($this->subtitle); ?></h2>
+
+    <form action="<?php echo $this->baseUrl ?>/usuarios/usuarios/<?php echo $this->action; ?>" method="post">
+        <div>
+            <label for="usuario">Usuario:</label>
+            <input type="text" name="usuario" size="32" value="<?php echo $this->escape(trim($this->usuario->usuario));?>"/>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" size="32" value="<?php echo $this->escape($this->usuario->password);?>"/>
+        </div>
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" size="40" value="<?php echo $this->escape($this->usuario->nombre);?>"/>
+        </div>
+        <div>
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" size="40" value="<?php echo $this->escape($this->usuario->apellido);?>"/>
+        </div>
+        <div>
+            <label for="mail">Mail:</label>
+            <input type="text" name="mail" size="64" value="<?php echo $this->escape($this->usuario->mail);?>"/>
+        </div>
+        <div id="boton_formulario">
+            <input type="hidden" name="id" value="<?php echo $this->usuario->id; ?>" />
+            <input type="submit" name="add" value="<?php echo $this->escape($this->buttonText); ?>" />
+        </div>
+    </form>
