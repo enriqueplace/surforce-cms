@@ -1,7 +1,7 @@
 <?php echo $this->render('header.phtml'); ?>
 
 <div id="cabecera">
-<h1><?php echo $this->escape($this->title);  ?></h1>
+    <h1><?php echo $this->escape($this->title);  ?></h1>
 </div>
 
 <?php echo $this->render('menu.phtml'); ?>
@@ -10,48 +10,48 @@
 <h2><?php echo $this->escape($this->subtitle); ?></h2>
 
 <?php if ($this->usuarioLogueado): ?>
-	<p><a href="<?php echo $this->baseUrl; ?>/menu/menu/agregar">Agregar ítem</a></p>
+    <p><a href="<?php echo $this->baseUrl; ?>/menu/menu/agregar">Agregar ítem</a></p>
 <?php endif; ?>
 
-	<table>
-	<tr>
-		<th>id</th>
-		<th>Item</th>
-	 	<th>Destino</th>
-	 	<th>Privado</th>
-	 	<th>Estado</th>
-	 	<th>Posición</th>
+    <table>
+    <tr>
+        <th>id</th>
+        <th>Item</th>
+         <th>Destino</th>
+         <th>Privado</th>
+         <th>Estado</th>
+         <th>Posición</th>
 
-	<?php if ($this->usuarioLogueado): ?>
-	 	<th colspan="3">Acciones</th>
-	<?php endif; ?>
+    <?php if ($this->usuarioLogueado): ?>
+         <th colspan="3">Acciones</th>
+    <?php endif; ?>
 
-	</tr>
-	<?php
-	foreach( $this->menu as $items ) : ?>
-			<tr>
-				<td><?php echo $this->escape($items->id);?></td>
-				<td><?php echo $this->escape($items->item);?></td>
-				<td><a href="<?php echo $this->baseUrl . $this->escape($items->destino);?>"><?php echo $this->escape($items->destino);?></A></td>
+    </tr>
+    <?php
+    foreach( $this->menu as $items ) : ?>
+            <tr>
+                <td><?php echo $this->escape($items->id);?></td>
+                <td><?php echo $this->escape($items->item);?></td>
+                <td><a href="<?php echo $this->baseUrl . $this->escape($items->destino);?>"><?php echo $this->escape($items->destino);?></A></td>
 
-				<td align="center"><img border="0" src="<?php echo $this->baseUrl ?>/public/images/estado_<?php echo $items->privado; ?>.png" /></td>
+                <td align="center"><img border="0" src="<?php echo $this->baseUrl ?>/public/images/estado_<?php echo $items->privado; ?>.png" /></td>
 
-				<td align="center"><img border="0" src="<?php echo $this->baseUrl ?>/public/images/estado_<?php echo $items->estado; ?>.png" /></td>
+                <td align="center"><img border="0" src="<?php echo $this->baseUrl ?>/public/images/estado_<?php echo $items->estado; ?>.png" /></td>
 
-				<td><?php echo $this->escape($items->posicion);?></td>
+                <td><?php echo $this->escape($items->posicion);?></td>
 
-				<?php if ($this->usuarioLogueado): ?>
-					<td><a href="<?php echo $this->baseUrl; ?>/menu/menu/ver/id/<?php echo $items->id;?>">Ver</a></td>
-					<td><a href="<?php echo $this->baseUrl; ?>/menu/menu/modificar/id/<?php echo $items->id;?>">Modificar</a></td>
-					<td><a href="<?php echo $this->baseUrl; ?>/menu/menu/eliminar/id/<?php echo $items->id;?>">Eliminar</a></td>
-				<?php endif; ?>
+                <?php if ($this->usuarioLogueado): ?>
+                    <td><a href="<?php echo $this->baseUrl; ?>/menu/menu/ver/id/<?php echo $items->id;?>">Ver</a></td>
+                    <td><a href="<?php echo $this->baseUrl; ?>/menu/menu/modificar/id/<?php echo $items->id;?>">Modificar</a></td>
+                    <td><a href="<?php echo $this->baseUrl; ?>/menu/menu/eliminar/id/<?php echo $items->id;?>">Eliminar</a></td>
+                <?php endif; ?>
 
-			</tr>
-	<?php endforeach; ?>
-	</table>
+            </tr>
+    <?php endforeach; ?>
+    </table>
 
 <?php if ($this->usuarioLogueado): ?>
-	<p><a href="<?php echo $this->baseUrl; ?>/menu/menu/agregar">Agregar ítem</a></p>
+    <p><a href="<?php echo $this->baseUrl; ?>/menu/menu/agregar">Agregar ítem</a></p>
 <?php endif; ?>
 
 </div>
