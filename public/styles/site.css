@@ -20,7 +20,7 @@ DIV#cabecera H1{
   margin:0;
   padding:0;
   font-size:22px;
-  color:#CCCCCC;
+  color:gray;
 }
 
 DIV#cabecera{
@@ -42,6 +42,8 @@ DIV#menu{
   overflow:hidden;
   float:left;
   padding:5px;
+  background-color:#FDF7F2;
+  border:1px dashed #CCCCCC;
 }
 
 DIV#contenido{
