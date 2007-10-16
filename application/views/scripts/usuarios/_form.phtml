@@ -21,6 +21,9 @@
             <label for="mail">Mail:</label>
             <input type="text" name="mail" size="64" value="<?php echo $this->escape($this->usuario->mail);?>"/>
         </div>
+
+        <br> (*) Todos los campos son obligatorios <br><br>
+
         <div id="boton_formulario">
             <input type="hidden" name="id" value="<?php echo $this->usuario->id; ?>" />
             <input type="submit" name="add" value="<?php echo $this->escape($this->buttonText); ?>" />
