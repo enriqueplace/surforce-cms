@@ -16,21 +16,25 @@
 
   <?php
   foreach( $this->noticias as $noticia ) : ?>
+	<div id="noticia">
+	    <div id="noticia-titulo"><?php echo $this->escape($noticia->titulo);?></div>
+	    <div id="noticia-fecha"><?php echo $this->escape($noticia->fecha);?></div>
+	    <div id="noticia-contenido"><?php echo $noticia->contenido;?></div>
 
-    <div id="noticia-titulo"><?php echo $this->escape($noticia->titulo);?></div>
-    <div id="noticia-fecha"><?php echo $this->escape($noticia->fecha);?></div>
-    <div id="noticia-contenido"><?php echo $noticia->contenido;?></div>
-
-    <?php if ($this->usuarioLogueado): ?>
-    	<br>
-      <div id="noticia-opciones">
-      	Acciones:
-        <a href="<?php echo $this->baseUrl; ?>/noticias/noticias/ver/id/<?php echo $noticia->id;?>">Ver</a> |
-        <a href="<?php echo $this->baseUrl; ?>/noticias/noticias/modificar/id/<?php echo $noticia->id;?>">Modificar</a> |
-        <a href="<?php echo $this->baseUrl; ?>/noticias/noticias/eliminar/id/<?php echo $noticia->id;?>">Eliminar</a>
-      </div>
-    <?php endif; ?>
-	<HR>
+	    <?php if ($this->usuarioLogueado): ?>
+	    	<br>
+			<div class="menu-opciones">
+		      	<ul>
+					<!--<li>Acciones:</li>-->
+			        <li><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/ver/id/<?php echo $noticia->id;?>" id="primero">Ver</a></li>
+			        <li><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/modificar/id/<?php echo $noticia->id;?>">Modificar</a></li>
+			        <li><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/eliminar/id/<?php echo $noticia->id;?>">Eliminar</a></li>
+				</ul>
+			</div>
+	    <?php endif; ?>
+	<div class="div-reset"></div>
+	</div>
+	
   <?php endforeach; ?>
 
 

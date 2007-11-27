@@ -98,6 +98,12 @@ DIV#boton_formulario INPUT{
 DIV#logueado{
 }
 
+DIV#noticia{
+	border-bottom: 1px dashed #CCCCCC;
+	margin-bottom:2em;
+	/*background:#FEFDFC;*/
+}
+
 DIV#noticia-titulo{
   font-family:Verdana,Arial,Helvetica,sans-serif;
   font-weight:bold;
@@ -128,4 +134,50 @@ DIV#login-form{
   text-align:left;
 
 }
+/*Menu horizontal  */
+.menu-opciones {
+	font: 100% "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
 
+.menu-opciones ul, li {
+	list-style-type: none;
+}
+
+.menu-opciones ul {
+	margin: 0;
+	padding: 0;
+}
+
+.menu-opciones li {
+	float: left;
+	
+}
+
+.menu-opciones a {
+	text-decoration: none;
+	font-weight: bold;
+	color: #DF7E2F;
+	background: #FDF7F2;
+	display: block;
+	padding: 3px 10px;
+	text-align: center;
+	border: 1px solid #F7DECA;
+	border-width: 1px 1px 1px 0;
+}
+
+
+.menu-opciones a#primero {
+	border-left: 1px solid #F7DECA;
+}
+
+.menu-opciones a:hover {
+	background: #F7DECA;
+}
+/*fin menu */
+
+/*Capa para contrasetar los efectos de float y hacer de 'falso contenido' para que el menu opciones quede contenido en la capa noticia.*/
+.div-reset{
+	clear:both;
+	margin-bottom:1em;
+}
+/*fin reset*/
