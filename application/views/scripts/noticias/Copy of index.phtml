@@ -1,0 +1,48 @@
+<?php echo $this->render('header.phtml'); ?>
+
+<div id="cabecera">
+    <h1><?php echo $this->escape($this->title);  ?></h1>
+</div>
+
+<?php echo $this->render('menu.phtml'); ?>
+
+<div id="contenido">
+<h2><?php echo $this->escape($this->subtitle); ?></h2>
+<?php if ($this->usuarioLogueado): ?>
+    <div id="menu-opciones">
+          <p><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/agregar">Agregar noticia</a></p>
+    </div>
+<?php endif; ?>
+
+
+  <?php
+  foreach( $this->noticias as $noticia ) : ?>
+    <div id="noticia">
+        <div id="noticia-titulo"><?php echo $this->escape($noticia->titulo);?></div>
+        <div id="noticia-fecha"><?php echo $this->escape($noticia->fecha);?></div>
+        <div id="noticia-contenido"><?php echo $noticia->contenido;?></div>
+
+        <?php if ($this->usuarioLogueado): ?>
+            <br>
+            <div class="menu-opciones">
+                  <ul>
+                    <!--<li>Acciones:</li>-->
+                    <li><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/ver/id/<?php echo $noticia->id;?>" id="primero">Ver</a></li>
+                    <li><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/modificar/id/<?php echo $noticia->id;?>">Modificar</a></li>
+                    <li><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/eliminar/id/<?php echo $noticia->id;?>">Eliminar</a></li>
+                </ul>
+            </div>
+        <?php endif; ?>
+    <div class="div-reset"></div>
+    </div>
+
+  <?php endforeach; ?>
+
+
+<?php if ($this->usuarioLogueado): ?>
+  <p><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/agregar">Agregar noticia</a></p>
+<?php endif; ?>
+
+</div>
+
+<?php echo $this->render('footer.phtml'); ?>
