@@ -390,3 +390,55 @@ INSERT INTO `usuarios` (`id`, `usuario`, `password`, `nombre`, `apellido`, `mail
 (4, 'montgomery', 'clave', 'Montgomery', 'Burns', 'montgomery@springfield.com', 0, '2007-07-03 23:25:26', '2007-07-03 23:25:26'),
 (5, 'kent', 'clave', 'Kent', 'Brockman', 'kent@springfield.com', 1, '2007-07-03 23:25:26', '2007-07-03 23:25:26'),
 (6, 'eplace', 'pepe', 'Enrique', 'Place', 'enriqueplace@gmail.com', 1, '2007-07-25 23:45:28', '2007-07-25 23:45:28');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `menus`
+--
+
+CREATE TABLE `menus` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `id_sitio` int(10) unsigned NOT NULL,
+  `nombre` varchar(150) collate utf8_unicode_ci NOT NULL,
+  `titulo` varchar(50) collate utf8_unicode_ci default NULL,
+  `descripcion` varchar(255) collate utf8_unicode_ci default NULL,
+  `posicion` tinyint(2) NOT NULL default '1',
+  `privado` char(1) collate utf8_unicode_ci NOT NULL,
+  `estado` char(1) collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+--
+-- Volcar la base de datos para la tabla `menus`
+--
+
+INSERT INTO `menus` (`id`, `id_sitio`, `nombre`, `titulo`, `descripcion`, `posicion`, `privado`, `estado`) VALUES
+(1, 0, 'Administrador', 'MenÃº Administrador', 'menu admin', 2, '1', '1'),
+(2, 0, 'Sitios amigos', 'Nuestros sitios amigos', 'Enlaces a sitios amigos', 1, '0', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `menus_items`
+--
+
+CREATE TABLE `menus_items` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `id_menu` int(10) unsigned NOT NULL,
+  `item` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `destino` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `posicion` tinyint(2) unsigned NOT NULL,
+  `privado` char(1) collate utf8_unicode_ci NOT NULL,
+  `estado` char(1) collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Volcar la base de datos para la tabla `menus_items`
+--
+
+INSERT INTO `menus_items` (`id`, `id_menu`, `item`, `destino`, `posicion`, `privado`, `estado`) VALUES
+(1, 1, 'Menus', '/menus/menus', 1, '0', '1'),
+(2, 2, 'Google', 'google.com', 1, '0', '1'),
+(3, 1, 'Usuarios', '/usuarios/usuarios', 2, '1', '1');
