@@ -134,9 +134,39 @@ DIV#login-form{
   text-align:left;
 
 }
+
+TABLE.mensaje{
+	margin:0 auto;
+	text-align:center;
+}
+
+TD.mensaje-error{
+	padding:3px 8px 3px 8px;
+	border:1px solid #ff0000;
+	background-color:#ffecec;
+}
+
+TD.mensaje-exito{
+	padding:3px 8px 3px 8px;
+	border:1px solid #89cb59;
+	background-color:#c3f89c;
+}
+
+TD.mensaje-informativo{
+	padding:3px 8px 3px 8px;
+	border:1px solid #c9c54d;
+	background-color:#fffb96;
+}
+
 /*Menu horizontal  */
 .menu-opciones {
     font: 100% "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.error-campo-formulario{
+  font-family:Verdana,Arial,Helvetica,sans-serif;
+  font-weight:bold;
+  color:#ff0000;
 }
 
 .menu-opciones ul, li {
@@ -181,3 +211,4 @@ DIV#login-form{
     margin-bottom:1em;
 }
 /*fin reset*/
+

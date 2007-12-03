@@ -1,0 +1,60 @@
+<h2><?php echo $this->escape($this->subtitle); ?></h2>
+
+<form action="<?php echo $this->baseUrl ?>/menus/items/<?php echo $this->action; ?>" method="post">
+
+<!-- ITEM -->
+<div>
+	<label for="item">Item:</label>
+	<input type="text" name="item"
+	value="<?php echo $this->escape(trim($this->item->item));?>" />
+	<?php if(isset($this->messages['item'])){echo '<span class="error-campo-formulario">'.$this->messages['item'].'</span>';}?>
+</div>
+
+<!-- DESTINO -->
+<div>
+	<label for="destino">Destino:</label>
+	<input type="text" name="destino"
+	value="<?php echo $this->escape($this->item->destino);?>" />
+	<?php if(isset($this->messages['destino'])){echo '<span class="error-campo-formulario">'.$this->messages['destino'].'</span>';}?>
+</div>
+
+
+<!-- POSICION -->
+<div>
+	<label for="posicion">Posición:</label>
+	<input type="text" name="posicion" size="4"
+	value="<?php echo $this->escape($this->item->posicion);?>" />
+	<?php if(isset($this->messages['posicion'])){echo '<span class="error-campo-formulario">'.$this->messages['posicion'].'</span>';}?>
+</div>
+
+
+<!-- PRIVADO -->
+<div>
+	<label for="privado">Privado:</label>
+	<select name="privado">
+		<option value="1" <?php if ($this->escape($this->item->privado) == 1) echo 'selected="selected"'; ?>>Si</option>
+		<option value="0" <?php if ($this->escape($this->item->privado) == 0) echo 'selected="selected"'; ?>>No</option>
+	</select>
+	<?php if(isset($this->messages['privado'])){echo '<span class="error-campo-formulario">'.$this->messages['privado'].'</span>';}?>
+</div>
+
+
+<!-- ESTADO -->
+<div>
+	<label for="estado">Estado:</label>
+	<select name="estado">
+		<option value="1" <?php if ($this->escape($this->item->estado) == 1) echo 'selected="selected"'; ?>>Activo</option>
+		<option value="0" <?php if ($this->escape($this->item->estado) == 0) echo 'selected="selected"'; ?>>Inactivo</option>
+	</select>
+	<?php if(isset($this->messages['estado'])){echo '<span class="error-campo-formulario">'.$this->messages['estado'].'</span>';}?>
+</div>
+
+
+<div id="formbutton">
+	<input type="hidden" name="id" value="<?php echo $this->item->id; ?>" />
+	<input type="hidden" name="idMenu" value="<?php echo $this->idMenu; ?>" />
+	<input type="submit" name="add"
+	value="<?php echo $this->escape($this->buttonText); ?>" />
+</div>
+
+</form>

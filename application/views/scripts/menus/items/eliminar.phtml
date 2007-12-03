@@ -1,0 +1,24 @@
+<?php echo $this->render('../header.phtml'); ?>
+<?php echo $this->render('../menu.phtml'); ?>
+
+<div id="contenido">
+
+	<h2><?php echo $this->escape($this->subtitle); ?></h2>
+
+	<?php if ($this->item) :?>
+		<form action="<?php echo $this->baseUrl ?>/menus/items/eliminar" method="post">
+			<p>¿Está seguro que quiere eliminar el item '<?php echo $this->escape($this->item->item); ?>'?
+			</p>
+			<div id="boton_formulario">
+				<input type="hidden" name="id" value="<?php echo $this->item->id; ?>" />
+				<input type="submit" name="del" value="No" />
+				<input type="submit" name="del" value="Si" />
+			</div>
+		</form>
+	<?php else: ?>
+		<p>Este item no existe.</p>
+	<?php endif;?>
+
+</div>
+
+<?php echo $this->render('../footer.phtml'); ?>

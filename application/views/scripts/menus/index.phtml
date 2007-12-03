@@ -1,0 +1,60 @@
+<?php echo $this->render('header.phtml'); ?>
+<?php echo $this->render('menu.phtml'); ?>
+
+<div id="contenido">
+
+<?php echo $this->render('mensaje.phtml');?>
+
+<h2><?php echo $this->escape($this->subtitle); ?></h2>
+
+<?php if ($this->usuarioLogueado): ?>
+	<p><a href="<?php echo $this->baseUrl; ?>/menus/menus/agregar">Agregar menú</a></p>
+<?php endif; ?>
+
+	<table>
+	<tr>
+		<th>id</th>
+		<th>Nombre</th>
+		<th>Título</th>
+	 	<th>Descripción</th>
+	 	<th>Privado</th>
+	 	<th>Estado</th>
+	 	<th>Posición</th>
+
+	<?php if ($this->usuarioLogueado): ?>
+	 	<th colspan="4">Acciones</th>
+	<?php endif; ?>
+
+	</tr>
+	<?php
+	foreach( $this->menus as $menu ) : ?>
+			<tr>
+				<td><?php echo $this->escape($menu->id);?></td>
+				<td><?php echo $this->escape($menu->nombre);?></td>
+				<td><?php echo $this->escape($menu->titulo);?></td>
+				<td><?php echo $this->escape($menu->descripcion);?></td>
+
+				<td align="center"><img border="0" src="<?php echo $this->baseUrl ?>/public/images/estado_<?php echo $menu->privado; ?>.png" /></td>
+
+				<td align="center"><img border="0" src="<?php echo $this->baseUrl ?>/public/images/estado_<?php echo $menu->estado; ?>.png" /></td>
+
+				<td><?php echo $this->escape($menu->posicion);?></td>
+
+				<?php if ($this->usuarioLogueado): ?>
+					<td><a href="<?php echo $this->baseUrl; ?>/menus/menus/ver/id/<?php echo $menu->id;?>">Ver</a></td>
+					<td><a href="<?php echo $this->baseUrl; ?>/menus/menus/modificar/id/<?php echo $menu->id;?>">Modificar</a></td>
+					<td><a href="<?php echo $this->baseUrl; ?>/menus/menus/eliminar/id/<?php echo $menu->id;?>">Eliminar</a></td>
+					<td><a href="<?php echo $this->baseUrl; ?>/menus/items/editar/id/<?php echo $menu->id;?>">Editar Items</a></td>
+				<?php endif; ?>
+
+			</tr>
+	<?php endforeach; ?>
+	</table>
+
+<?php if ($this->usuarioLogueado): ?>
+	<p><a href="<?php echo $this->baseUrl; ?>/menus/menus/agregar">Agregar menú</a></p>
+<?php endif; ?>
+
+</div>
+
+<?php echo $this->render('footer.phtml'); ?>

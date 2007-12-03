@@ -10,6 +10,8 @@
         'dbname'   => $r->db->config->dbname
         ));
 
+
+	// Esta porcion de codigo se deja por transicion -------------------------------
     $stmt = $db->query('SELECT * FROM menu WHERE estado = 1 ORDER BY privado, posicion');
     $enlaces = $stmt->fetchAll();
 
@@ -33,8 +35,38 @@
         echo '<li><a href="'.$this->baseUrl.$enlace['destino'].'" title="'.$tipo_menu_desc.'">'.$enlace['item'].' '.$tipo_menu.'</a></li>';
     }
     echo "</ul>";
+	//---------------------------------------------------------------------------------
 
-    ?>
+	$stmt = $db->query('SELECT * FROM menus WHERE estado = 1 ORDER BY posicion');
+
+	$menus = $stmt->fetchAll();
+
+	//var_dump( $menus );
+	//die;
+
+	foreach($menus as $menu){
+		if($menu['privado'] and !$this->usuarioLogueado){
+			continue;
+		}
+
+		$stmt = $db->query('SELECT * FROM menus_items WHERE id_menu = '.$menu['id'].' and estado = 1 ORDER BY privado, posicion');
+		$items = $stmt->fetchAll();
+
+
+		if(count($items)){
+			echo '<div style="border:1px solid #cccccc;margin:2px;">';
+			echo "<ul>";
+
+			foreach($items as $item){
+				echo '<li><a href="' . $this->baseUrl . $item['destino'].'">' . $item['item'] . '</a></li>';
+			}
+
+			echo "</ul>";
+			echo '</div>';
+		}
+	}
+
+	?>
 
     <div id="login">
         <?php if($this->user) : ?>

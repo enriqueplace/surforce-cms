@@ -25,7 +25,7 @@ class Menu_MenuController extends Zend_Controller_Action{
         //$info = Zend_Registry::get('personalizacion');
         $this->view->subtitle = $this->info->sitio->menu->index->titulo;
         $menu = new Menu();
-        $this->view->menu = $menu->fetchAll();
+        $this->view->menu = $menu->fetchAll(NULL, 'posicion');
         $this->render();
     }
 
@@ -34,8 +34,8 @@ class Menu_MenuController extends Zend_Controller_Action{
         if(!$this->view->usuarioLogueado){
             die($this->info->sitio->menu->agregar->msgRestringido);
         }
-        // Si desde el ABM de pÃ¡ginas quiero guardar la pÃ¡gina
-        // directamente como una opciÃ³n en el menÃº
+        // Si desde el ABM de páginas quiero guardar la página
+        // directamente como una opción en el menú
         $pagina_id = (int)$this->_request->getParam('pagina');
         if( $pagina_id ){
             Zend_Loader::loadClass('Paginas');

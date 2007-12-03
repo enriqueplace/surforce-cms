@@ -1,0 +1,70 @@
+<?php echo $this->render('../header.phtml'); ?>
+<?php echo $this->render('../menu.phtml'); ?>
+
+<div id="contenido">
+
+<?php echo $this->render('../mensaje.phtml');?>
+
+<h2><?php echo $this->escape($this->subtitle); ?></h2>
+
+	<p>
+		<a href="<?php echo $this->baseUrl; ?>/menus/items/">Ver todos los Items</a>
+		|
+		<a href="<?php echo $this->baseUrl; ?>/menus/menus/">Volver a menús</a>
+	</p>
+
+	<p>
+	<?php if ($this->usuarioLogueado): ?>
+		<p><a href="<?php echo $this->baseUrl; ?>/menus/items/agregar/id/<?php echo $this->idMenu;?>">Agregar Item</a></p>
+	<?php endif; ?>
+	</p>
+
+	<table>
+	<tr>
+		<th>id</th>
+		<th>id Menu</th>
+		<th>Item</th>
+	 	<th>Destino</th>
+	 	<th>Privado</th>
+	 	<th>Estado</th>
+	 	<th>Posición</th>
+
+	<?php if ($this->usuarioLogueado): ?>
+	 	<th colspan="4">Acciones</th>
+	<?php endif; ?>
+
+	</tr>
+	<?php
+
+	foreach( $this->items as $item ) : ?>
+
+			<tr>
+				<td><?php echo $this->escape($item->id);?></td>
+				<td><?php echo $this->escape($item->id_menu);?></td>
+				<td><?php echo $this->escape($item->item);?></td>
+				<td><?php echo $this->escape($item->destino);?></td>
+
+				<td align="center"><img border="0" src="<?php echo $this->baseUrl ?>/public/images/estado_<?php echo $item->privado; ?>.png" /></td>
+
+				<td align="center"><img border="0" src="<?php echo $this->baseUrl ?>/public/images/estado_<?php echo $item->estado; ?>.png" /></td>
+
+				<td><?php echo $this->escape($item->posicion);?></td>
+
+				<?php if ($this->usuarioLogueado): ?>
+					<td><a href="<?php echo $this->baseUrl; ?>/menus/items/ver/id/<?php echo $item->id;?>">Ver</a></td>
+					<td><a href="<?php echo $this->baseUrl; ?>/menus/items/modificar/id/<?php echo $item->id;?>">Modificar</a></td>
+					<td><a href="<?php echo $this->baseUrl; ?>/menus/items/eliminar/id/<?php echo $item->id;?>">Eliminar</a></td>
+					<td><a href="<?php echo $this->baseUrl; ?>/menus/items/agregar/id/<?php echo $item->id_menu;?>">Agregar Item</a></td>
+				<?php endif; ?>
+
+			</tr>
+	<?php endforeach; ?>
+	</table>
+
+	<?php if ($this->usuarioLogueado): ?>
+		<p><a href="<?php echo $this->baseUrl; ?>/menus/items/agregar/id/<?php echo $this->idMenu;?>">Agregar Item</a></p>
+	<?php endif; ?>
+
+</div>
+
+<?php echo $this->render('../footer.phtml'); ?>

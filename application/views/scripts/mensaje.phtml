@@ -1,0 +1,37 @@
+<?php if($this->mensajeError): ?>
+  <table class="mensaje">
+    <tbody>
+      <tr>
+        <td class="mensaje-error">
+		  <?php echo $this->escape($this->mensajeError); ?>
+	    </td>
+      </tr>
+    </tbody>
+  </table>
+<?php endif;?>
+
+
+<?php if($this->mensajeExito): ?>
+  <table class="mensaje">
+    <tbody>
+      <tr>
+        <td class="mensaje-exito">
+		  <?php echo $this->escape($this->mensajeExito); ?>
+	    </td>
+      </tr>
+    </tbody>
+  </table>
+<?php endif;?>
+
+
+<?php if($this->mensajeInformativo): ?>
+  <table class="mensaje">
+    <tbody>
+      <tr>
+        <td class="mensaje-informativo">
+		  <?php echo $this->escape($this->mensajeInformativo); ?>
+	    </td>
+      </tr>
+    </tbody>
+  </table>
+<?php endif;?>
