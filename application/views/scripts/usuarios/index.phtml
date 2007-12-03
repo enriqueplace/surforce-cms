@@ -1,50 +1,45 @@
 <?php echo $this->render('header.phtml'); ?>
-
-<div id="cabecera">
-<h1><?php echo $this->escape($this->title);  ?></h1>
-</div>
-
 <?php echo $this->render('menu.phtml'); ?>
 
 <div id="contenido">
 <h2><?php echo $this->escape($this->subtitle); ?></h2>
 
 <?php if ($this->usuarioLogueado): ?>
-	<p><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/agregar">Agregar Usuario</a></p>
+    <p><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/agregar">Agregar Usuario</a></p>
 <?php endif; ?>
 
-	<table>
-	<tr>
-	 	<th>Usuario</th>
-	 	<th>Nombre</th>
-	 	<th>Apellido</th>
-	<?php if ($this->usuarioLogueado): ?>
-		<th>Email</th>
-	 	<th colspan="3">Acciones</th>
-	<?php endif; ?>
+    <table>
+    <tr>
+         <th>Usuario</th>
+         <th>Nombre</th>
+         <th>Apellido</th>
+    <?php if ($this->usuarioLogueado): ?>
+        <th>Email</th>
+         <th colspan="3">Acciones</th>
+    <?php endif; ?>
 
-	</tr>
-	<?php
-	foreach( $this->usuarios as $usuario ) : ?>
-			<tr>
-				<td><?php echo $this->escape($usuario->usuario);?></td>
-				<td><?php echo $this->escape($usuario->nombre);?></td>
-				<td><?php echo $this->escape($usuario->apellido);?></td>
+    </tr>
+    <?php
+    foreach( $this->usuarios as $usuario ) : ?>
+            <tr>
+                <td><?php echo $this->escape($usuario->usuario);?></td>
+                <td><?php echo $this->escape($usuario->nombre);?></td>
+                <td><?php echo $this->escape($usuario->apellido);?></td>
 
 
-			<?php if ($this->usuarioLogueado): ?>
-				<td><?php echo $this->escape($usuario->mail);?></td>
-				<td><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/ver/id/<?php echo $usuario->id;?>">Ver</a></td>
-				<td><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/modificar/id/<?php echo $usuario->id;?>">Modificar</a></td>
-				<td><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/eliminar/id/<?php echo $usuario->id;?>">Eliminar</a></td>
-			<?php endif; ?>
+            <?php if ($this->usuarioLogueado): ?>
+                <td><?php echo $this->escape($usuario->mail);?></td>
+                <td><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/ver/id/<?php echo $usuario->id;?>">Ver</a></td>
+                <td><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/modificar/id/<?php echo $usuario->id;?>">Modificar</a></td>
+                <td><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/eliminar/id/<?php echo $usuario->id;?>">Eliminar</a></td>
+            <?php endif; ?>
 
-			</tr>
-	<?php endforeach; ?>
-	</table>
+            </tr>
+    <?php endforeach; ?>
+    </table>
 
 <?php if ($this->usuarioLogueado): ?>
-	<p><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/agregar">Agregar Usuario</a></p>
+    <p><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/agregar">Agregar Usuario</a></p>
 <?php endif; ?>
 
 </div>

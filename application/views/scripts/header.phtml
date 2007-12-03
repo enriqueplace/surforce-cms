@@ -29,4 +29,8 @@
   <body>
     <div id="contenedor">
 
+    <div id="cabecera">
+        <h1><?php echo $this->escape($this->title);  ?></h1>
+        <?php if( $this->user ) echo "usuario: ".$this->escape($this->user->usuario);?>
+    </div>
 

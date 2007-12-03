@@ -1,48 +1,48 @@
 <div id="menu">
 
-	<?php
-	$registry = Zend_Registry::getInstance();
-	$r = $registry->get('config');
-	$db = new Zend_Db_Adapter_Pdo_Mysql(array(
-	    'host'     => $r->db->config->host,
-	    'username' => $r->db->config->username,
-	    'password' => $r->db->config->password,
-	    'dbname'   => $r->db->config->dbname
-		));
+    <?php
+    $registry = Zend_Registry::getInstance();
+    $r = $registry->get('config');
+    $db = new Zend_Db_Adapter_Pdo_Mysql(array(
+        'host'     => $r->db->config->host,
+        'username' => $r->db->config->username,
+        'password' => $r->db->config->password,
+        'dbname'   => $r->db->config->dbname
+        ));
 
-	$stmt = $db->query('SELECT * FROM menu WHERE estado = 1 ORDER BY privado, posicion');
-	$enlaces = $stmt->fetchAll();
+    $stmt = $db->query('SELECT * FROM menu WHERE estado = 1 ORDER BY privado, posicion');
+    $enlaces = $stmt->fetchAll();
 
-	echo "<ul>";
-	$tipo_menu = "";
-	$tipo_menu_desc = "";
-	foreach($enlaces as $enlace){
-		if($enlace['privado']){
-			if(!$this->user){
-				continue;
-			}else{
-				$tipo_menu = "(-)";
-				$tipo_menu_desc = "ítem privado";
-			}
-		}else{
-			if($this->user){
-				$tipo_menu = "(+)";
-				$tipo_menu_desc = "ítem público";
-			}
-		}
-		echo '<li><a href="'.$this->baseUrl.$enlace['destino'].'" title="'.$tipo_menu_desc.'">'.$enlace['item'].' '.$tipo_menu.'</a></li>';
-	}
-	echo "</ul>";
+    echo "<ul>";
+    $tipo_menu = "";
+    $tipo_menu_desc = "";
+    foreach($enlaces as $enlace){
+        if($enlace['privado']){
+            if(!$this->user){
+                continue;
+            }else{
+                $tipo_menu = "(-)";
+                $tipo_menu_desc = "ítem privado";
+            }
+        }else{
+            if($this->user){
+                $tipo_menu = "(+)";
+                $tipo_menu_desc = "ítem público";
+            }
+        }
+        echo '<li><a href="'.$this->baseUrl.$enlace['destino'].'" title="'.$tipo_menu_desc.'">'.$enlace['item'].' '.$tipo_menu.'</a></li>';
+    }
+    echo "</ul>";
 
-	?>
+    ?>
 
-	<div id="login">
-		<?php if($this->user) : ?>
-			<p id="logueado">Usuario logueado como <?php echo $this->escape($this->user->nombre);?>.
-			<br/><br/>
-			<a href="<?php echo $this->baseUrl ?>/autenticacion/autenticacion/logout">[Cerrar sesión]</a></p>
-		<?php else : ?>
-			<a href="<?php echo $this->baseUrl ?>/autenticacion/autenticacion/login">[Iniciar sesión]</a></p>
-		<?php endif; ?>
-	</div>
+    <div id="login">
+        <?php if($this->user) : ?>
+            <p id="logueado">Usuario logueado como <?php echo $this->escape($this->user->nombre) . " " . $this->escape($this->user->apellido);?>
+            <br/><br/>
+            <a href="<?php echo $this->baseUrl ?>/autenticacion/autenticacion/logout">[Cerrar sesión]</a></p>
+        <?php else : ?>
+            <a href="<?php echo $this->baseUrl ?>/autenticacion/autenticacion/login">[Iniciar sesión]</a></p>
+        <?php endif; ?>
+    </div>
 </div>

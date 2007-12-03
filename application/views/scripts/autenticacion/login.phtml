@@ -1,12 +1,5 @@
 <?php echo $this->render('header.phtml'); ?>
 
-
-<div id="login-form">
-
-    <div id="cabecera">
-        <h1><?php echo $this->escape($this->title); ?></h1>
-    </div>
-
     <?php if(!empty($this->message)) :?>
         <div id="mensaje">
             <?php echo $this->escape($this->message);?>

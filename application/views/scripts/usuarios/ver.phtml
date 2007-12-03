@@ -1,58 +1,53 @@
 <?php echo $this->render('header.phtml'); ?>
-
-<div id="cabecera">
-<h1><?php echo $this->escape($this->title); ?></h1>
-</div>
-
 <?php echo $this->render('menu.phtml'); ?>
 
 <div id="contenido">
-	<h2><?php echo $this->escape($this->subtitle); ?></h2>
-	<?php if ($this->usuarioLogueado): ?>
-	<table>
-		<tr>
-			<td><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/modificar/id/<?php echo $this->usuario->id;?>">Modificar</a></td>
-			<td><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/eliminar/id/<?php echo $this->usuario->id;?>">Eliminar</a></td>
-		</tr>
-	</table>
-	<?php endif; ?>
+    <h2><?php echo $this->escape($this->subtitle); ?></h2>
+    <?php if ($this->usuarioLogueado): ?>
+    <table>
+        <tr>
+            <td><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/modificar/id/<?php echo $this->usuario->id;?>">Modificar</a></td>
+            <td><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/eliminar/id/<?php echo $this->usuario->id;?>">Eliminar</a></td>
+        </tr>
+    </table>
+    <?php endif; ?>
 
-	<div>
-		<label for="usuario">Id:&nbsp;</label>
-		<?php echo $this->escape(trim($this->usuario->id));?>
-	</div>
-	<div>
-		<label for="usuario">Usuario:&nbsp;</label>
-		<?php echo $this->escape(trim($this->usuario->usuario));?>
-	</div>
-	<div>
-		<label for="password">Password:&nbsp;</label>
-		<?php echo $this->escape($this->usuario->password);?>
-	</div>
-	<div>
-		<label for="nombre">Nombre:&nbsp;</label>
-		<?php echo $this->escape($this->usuario->nombre);?>
-	</div>
-	<div>
-		<label for="apellido">Apellido:&nbsp;</label>
-		<?php echo $this->escape($this->usuario->apellido);?>
-	</div>
-	<div>
-		<label for="mail">Mail:&nbsp;</label>
-		<?php echo $this->escape($this->usuario->mail);?>
-	</div>
-	<div>
-		<label for="estado">Estado:&nbsp;</label>
-		<?php echo $this->escape($this->usuario->estado);?>
-	</div>
-	<div>
-		<label for="creado">Creado:&nbsp;</label>
-		<?php echo $this->escape($this->usuario->creado);?>
-	</div>
-	<div>
-		<label for="modificado">Modificado:&nbsp;</label>
-		<?php echo $this->escape($this->usuario->modificado);?>
-	</div>
+    <div>
+        <label for="usuario">Id:&nbsp;</label>
+        <?php echo $this->escape(trim($this->usuario->id));?>
+    </div>
+    <div>
+        <label for="usuario">Usuario:&nbsp;</label>
+        <?php echo $this->escape(trim($this->usuario->usuario));?>
+    </div>
+    <div>
+        <label for="password">Password:&nbsp;</label>
+        <?php echo $this->escape($this->usuario->password);?>
+    </div>
+    <div>
+        <label for="nombre">Nombre:&nbsp;</label>
+        <?php echo $this->escape($this->usuario->nombre);?>
+    </div>
+    <div>
+        <label for="apellido">Apellido:&nbsp;</label>
+        <?php echo $this->escape($this->usuario->apellido);?>
+    </div>
+    <div>
+        <label for="mail">Mail:&nbsp;</label>
+        <?php echo $this->escape($this->usuario->mail);?>
+    </div>
+    <div>
+        <label for="estado">Estado:&nbsp;</label>
+        <?php echo $this->escape($this->usuario->estado);?>
+    </div>
+    <div>
+        <label for="creado">Creado:&nbsp;</label>
+        <?php echo $this->escape($this->usuario->creado);?>
+    </div>
+    <div>
+        <label for="modificado">Modificado:&nbsp;</label>
+        <?php echo $this->escape($this->usuario->modificado);?>
+    </div>
 </div>
 
 <?php echo $this->render('footer.phtml'); ?>
