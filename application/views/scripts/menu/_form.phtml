@@ -4,12 +4,22 @@
 
 <div>
     <label for="item">Item:</label>
-    <input type="text" name="item" size="45" value="<?php echo $this->escape(trim($this->item->item));?>"/>
+    <?php if( $this->pagina ) :?>
+        <input type="text" name="item" size="45" value="<?php echo $this->escape(trim($this->pagina->titulo));?>"/>
+    <?php else :?>
+        <input type="text" name="item" size="45" value="<?php echo $this->escape(trim($this->item->item));?>"/>
+    <?php endif; ?>
 </div>
 
 <div>
     <label for="destino">Destino:</label>
-    <input type="text" name="destino" size="80" value="<?php echo $this->escape($this->item->destino);?>"/>
+
+    <?php if( $this->pagina ) :?>
+        <input type="text" name="destino" size="80" value="/paginas/paginas/ver/id/<?php echo $this->escape($this->pagina->id);?>"/>
+    <?php else :?>
+        <input type="text" name="destino" size="80" value="<?php echo $this->escape($this->item->destino);?>"/>
+    <?php endif; ?>
+
 </div>
 
 <div>
