@@ -414,7 +414,7 @@ CREATE TABLE `menus` (
 --
 
 INSERT INTO `menus` (`id`, `id_sitio`, `nombre`, `titulo`, `descripcion`, `posicion`, `privado`, `estado`) VALUES
-(1, 0, 'Administrador', 'MenÃº Administrador', 'menu admin', 2, '1', '1'),
+(1, 0, 'Administrador', 'Menú Administrador', 'menu admin', 2, '1', '1'),
 (2, 0, 'Sitios amigos', 'Nuestros sitios amigos', 'Enlaces a sitios amigos', 1, '0', '1');
 
 -- --------------------------------------------------------
@@ -440,5 +440,5 @@ CREATE TABLE `menus_items` (
 
 INSERT INTO `menus_items` (`id`, `id_menu`, `item`, `destino`, `posicion`, `privado`, `estado`) VALUES
 (1, 1, 'Menus', '/menus/menus', 1, '0', '1'),
-(2, 2, 'Google', 'google.com', 1, '0', '1'),
+(2, 2, 'Google', 'http://www.google.com', 1, '0', '1'),
 (3, 1, 'Usuarios', '/usuarios/usuarios', 2, '1', '1');

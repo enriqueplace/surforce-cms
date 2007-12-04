@@ -11,5 +11,5 @@ CREATE TABLE `menus_items` (
 
 INSERT INTO `menus_items` (`id`, `id_menu`, `item`, `destino`, `posicion`, `privado`, `estado`) VALUES
 (1, 1, 'Menus', '/menus/menus', 1, '0', '1'),
-(2, 2, 'Google', 'google.com', 1, '0', '1'),
+(2, 2, 'Google', 'http://www.google.com', 1, '0', '1'),
 (3, 1, 'Usuarios', '/usuarios/usuarios', 2, '1', '1');

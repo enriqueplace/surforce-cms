@@ -11,5 +11,5 @@ CREATE TABLE `menus` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 INSERT INTO `menus` (`id`, `id_sitio`, `nombre`, `titulo`, `descripcion`, `posicion`, `privado`, `estado`) VALUES
-(1, 0, 'Administrador', 'MenÃº Administrador', 'menu admin', 2, '1', '1'),
+(1, 0, 'Administrador', 'Menú Administrador', 'menu admin', 2, '1', '1'),
 (2, 0, 'Sitios amigos', 'Nuestros sitios amigos', 'Enlaces a sitios amigos', 1, '0', '1');
