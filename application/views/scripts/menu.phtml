@@ -55,10 +55,18 @@
 
 		if(count($items)){
 			echo '<div style="border:1px solid #cccccc;margin:2px;">';
+
+			echo '<div class="titulo_menu">'.$menu['nombre'].'</div>';
+
 			echo "<ul>";
 
 			foreach($items as $item){
-				echo '<li><a href="' . $this->baseUrl . $item['destino'].'">' . $item['item'] . '</a></li>';
+				// Si es una URL no ponemos el "baseUrl"
+				if(preg_match('%^(.*)://(.*)$%', $item['destino'])){
+					echo '<li><a href="' . $item['destino'].'">' . $item['item'] . '</a></li>';
+				}else{
+					echo '<li><a href="' . $this->baseUrl . $item['destino'].'">' . $item['item'] . '</a></li>';
+				}
 			}
 
 			echo "</ul>";

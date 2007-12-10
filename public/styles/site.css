@@ -158,6 +158,13 @@ TD.mensaje-informativo{
 	background-color:#fffb96;
 }
 
+
+.titulo_menu{
+	padding:2px;
+	background-color:#EEEEEE;
+	text-align:center;
+}
+
 /*Menu horizontal  */
 .menu-opciones {
     font: 100% "Trebuchet MS", Arial, Helvetica, sans-serif;
