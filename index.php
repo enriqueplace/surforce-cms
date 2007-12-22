@@ -3,11 +3,12 @@ error_reporting(E_ALL|E_STRICT);
 date_default_timezone_set('America/Montevideo');
 
 set_include_path(	'.' .
-	PATH_SEPARATOR . './library' .
-	PATH_SEPARATOR . './application/models/' .
-	PATH_SEPARATOR . get_include_path()
+    PATH_SEPARATOR . './library' .
+    PATH_SEPARATOR . './application/models/' .
+    PATH_SEPARATOR . get_include_path()
 );
 
+// Carga de clases que se usan constantemente
 include "Zend/Loader.php";
 Zend_Loader::loadClass('Zend_Controller_Front');
 Zend_Loader::loadClass('Zend_Config_Ini');
@@ -38,9 +39,9 @@ $frontController->addModuleDirectory('./application/modules/');
 
 // run!
 try {
-	$frontController->dispatch();
+    $frontController->dispatch();
 } catch (Exception $e) {
-	echo "Message: " . $e->getMessage() . "\n";
+    echo "Message: " . $e->getMessage() . "\n";
 }
 // Según la documentación, no se cierra el tag PHP en el index.php porque no se necesita y así
 // se previenen errores difíciles de encontrar como con la funcion header() si se deja un
