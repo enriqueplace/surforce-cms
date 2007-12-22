@@ -3,8 +3,8 @@
 --
 -- Estructura de tabla para la tabla `faqs`
 --
-CREATE DATABASE `cms` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
-USE `cms`;
+CREATE DATABASE `surforce-cms` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci;
+USE `surforce-cms`;
 
 -- phpMyAdmin SQL Dump
 -- version 2.11.1
@@ -41,7 +41,7 @@ CREATE TABLE `faqs` (
 --
 
 INSERT INTO `faqs` (`id`, `pregunta`, `respuesta`, `fecha`) VALUES
-(1, 'Â¿CÃ³mo se hace para conseguir el login del sistema?', 'DeberÃ¡ contactarse con el owner del proyecto a travÃ©s de un email', '2007-10-14 00:21:14');
+(1, '¿Cómo se hace para conseguir el login del sistema?', 'Deberá contactarse con el owner del proyecto a través de un email', '2007-10-14 00:21:14');
 
 -- --------------------------------------------------------
 
@@ -68,11 +68,11 @@ INSERT INTO `menu` (`id`, `item`, `destino`, `posicion`, `privado`, `estado`) VA
 (1, 'ABM Noticias', '/noticias/noticias/', 1, '1', '1'),
 (2, 'FAQ', '/faqs/faqs/', 10, '0', '1'),
 (5, 'home', '/', 0, '0', '1'),
-(6, 'IntroducciÃ³n', '/paginas/paginas/ver/id/7', 4, '0', '1'),
-(7, 'InvestigaciÃ³n', '/paginas/paginas/ver/id/8', 5, '0', '1'),
+(6, 'Introducción', '/paginas/paginas/ver/id/7', 4, '0', '1'),
+(7, 'Investigación', '/paginas/paginas/ver/id/8', 5, '0', '1'),
 (8, 'ABM Menu', '/menu/menu/', 9, '1', '1'),
 (9, 'prueba item deshabilitado', '/noticias/noticias/', 8, '1', '0'),
-(10, 'ABM PÃ¡ginas', '/paginas/paginas/', 7, '1', '1'),
+(10, 'ABM Páginas', '/paginas/paginas/', 7, '1', '1'),
 (11, 'ABM Usuarios', '/usuarios/usuarios/', 12, '1', '1');
 
 -- --------------------------------------------------------
@@ -96,12 +96,12 @@ CREATE TABLE `noticias` (
 --
 
 INSERT INTO `noticias` (`id`, `titulo`, `contenido`, `fecha`, `id_usuario`) VALUES
-(1, 'Ejecutivo califica de terroristas a los piqueteros de GualeguaychÃº', '<p>El canciller Reinaldo Gargano dijo que para el gobierno las amenazas de los ambientalistas argentinos son de car&aacute;cter terrorista.</p>', '2007-08-01 01:15:13', 1),
+(1, 'Ejecutivo califica de terroristas a los piqueteros de Gualeguaychú', '<p>El canciller Reinaldo Gargano dijo que para el gobierno las amenazas de los ambientalistas argentinos son de car&aacute;cter terrorista.</p>', '2007-08-01 01:15:13', 1),
 (3, 'Leyenda infinita', '<p>Decenas de miles de aficionados de la m&uacute;sica de Elvis Presley se han dado cita esta semana en Memphis, Tennessee para rendir tributo a El Rey</p>', '2007-08-01 01:25:40', 0),
-(5, 'Accidentes se cobran casi 100 vÃ­ctimas en solo 12 dÃ­as', '<p>Las cifras de accidente del mes de agosto tienen particularmente preocupadas a las autoridades de tr&aacute;nsito.</p>', '2007-08-14 01:09:37', 0),
+(5, 'Accidentes se cobran casi 100 víctimas en solo 12 días', '<p>Las cifras de accidente del mes de agosto tienen particularmente preocupadas a las autoridades de tr&aacute;nsito.</p>', '2007-08-14 01:09:37', 0),
 (6, 'En los Andes', '<p><img width="173" height="115" align="left" alt="" src="../../../../../userfiles/andes.JPG" /><span class="hom_not_detallegrande">El arriero chileno Sergio Catal&aacute;n, quien encontrara a Parrado y Canessa. Hoy habr&aacute; una cena especial en el restaurante La Casa Violeta. Ma&ntilde;ana se jugar&aacute; el partido de rugby que no se pudo cumplir por el accidente ocurrido en octubre de 1972.</span></p>\r\n<p>&nbsp;Hoy se cumplen 35 a&ntilde;os de la tragedia, y posterior milagro, de Los Andres. Desde ayer est&aacute; en Uruguay Sergio Catal&aacute;n, el arriero chileno que auxili&oacute; a Fernando Parrado y Roberto Canessa cuando &eacute;stos llevaban 10 d&iacute;as caminando por la cordillera en busca de ayuda. Catal&aacute;n est&aacute; participando en una serie de actividades por la fecha aniversario.</p>\r\n<p><strong>Ma&ntilde;ana tendr&aacute; lugar el partido simb&oacute;lico entre Old Boys de Chile y Old Christian de Uruguay, el que no pudo jugarse en octubre de 1972 por el accidente.</strong></p>\r\n<p>Sergio Catal&aacute;n lleg&oacute; al mediod&iacute;a al Aeropuerto de Carrasco y sobre las 16 horas mantuvo un encuentro con el vicepresidente de la Rep&uacute;blica, Rodolfo Nin Novoa, quien le obsequi&oacute; una plaqueta en agradecimiento por haber salvado la vida de los rugbistas compatriotas.</p>\r\n<p>Dos horas m&aacute;s tarde, Catal&aacute;n estuvo en una conferencia de prensa en el Hotel Cotagge, y hoy cenar&aacute; junto a los uruguayos y los chilenos en un agasajo en el restaurante La Casa Violeta.</p>\r\n<p>Catal&aacute;n, de 80 a&ntilde;os, fue sometido este a&ntilde;o a una operaci&oacute;n de implante de cadera que fue posible gracias a las gestiones encabezadas, en nombre de sus compa&ntilde;eros, por el m&eacute;dico Roberto Canessa.</p>\r\n<p>EL ACCIDENTE. El viernes 13 de octubre de 1972 un avi&oacute;n uruguayo, que llevaba 45 pasajeros a Chile, de los cuales muchos no sobrepasaban los 20 a&ntilde;os, se estrell&oacute; en la Cordillera de los Andes.</p>\r\n<p>Los sobrevivientes tuvieron que soportar, entre otras cosas, hambre y temperaturas de treinta grados bajo cero.</p>\r\n<p>Desesperados ante la ausencia de alimentos y agotada su resistencia f&iacute;sica, se vieron obligados a alimentarse de sus compa&ntilde;eros muertos. Finalmente, hartos de las baj&iacute;simas temperaturas, los amenazadores aludes y la lenta espera del rescate, Parrado y Canessa deciden cruzar las monta&ntilde;as para as&iacute; llegar a Chile.</p>\r\n<p>De esta manera el 22 de diciembre de 1972, despu&eacute;s de estar durante 72 d&iacute;as aislados, el mundo se entera que hubo 16 sobrevivientes.</p>\r\n<p>El Pa&iacute;s</p>\r\n<p>&nbsp;</p>', '2007-10-13 19:58:03', 0),
-(7, '"Â¿Los escritorios llegarÃ¡n a ser tan reales?"', '<p>&nbsp;</p>\r\n<object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/M0ODskdEPnQ"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/M0ODskdEPnQ" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></embed></object>\r\n\r\n<p>Este es un video de una nueva interfaz de escritorio que emula la un &quot;escritorio real&quot;.</p>', '2007-10-14 00:05:26', 0),
-(8, 'UbicaciÃ³n del Monumento al Gaucho', '<p><iframe width="425" scrolling="no" height="350" frameborder="0" marginheight="0" marginwidth="0" src="http://maps.google.com/?ie=UTF8&amp;ll=-34.905669,-56.182902&amp;spn=0.00483,0.008669&amp;t=h&amp;z=17&amp;om=1&amp;output=embed&amp;s=AARTsJqzARj-Z8VnW5pkPMLMmZbqrJcYpw"></iframe><br />\r\n<small><a href="http://maps.google.com/?ie=UTF8&amp;ll=-34.905669,-56.182902&amp;spn=0.00483,0.008669&amp;t=h&amp;z=17&amp;om=1&amp;source=embed" style="color: rgb(0, 0, 255); text-align: left;">Ver mapa m&aacute;s grande</a></small></p>\r\n<p>Aqu&iacute; queda la Dinara</p>', '2007-10-14 00:08:36', 0);
+(7, '"¿Los escritorios llegarán a ser tan reales?"', '<p>&nbsp;</p>\r\n<object width="425" height="350"><param name="movie" value="http://www.youtube.com/v/M0ODskdEPnQ"></param><param name="wmode" value="transparent"></param><embed src="http://www.youtube.com/v/M0ODskdEPnQ" type="application/x-shockwave-flash" wmode="transparent" width="425" height="350"></embed></object>\r\n\r\n<p>Este es un video de una nueva interfaz de escritorio que emula la un &quot;escritorio real&quot;.</p>', '2007-10-14 00:05:26', 0),
+(8, 'Ubicación del Monumento al Gaucho', '<p><iframe width="425" scrolling="no" height="350" frameborder="0" marginheight="0" marginwidth="0" src="http://maps.google.com/?ie=UTF8&amp;ll=-34.905669,-56.182902&amp;spn=0.00483,0.008669&amp;t=h&amp;z=17&amp;om=1&amp;output=embed&amp;s=AARTsJqzARj-Z8VnW5pkPMLMmZbqrJcYpw"></iframe><br />\r\n<small><a href="http://maps.google.com/?ie=UTF8&amp;ll=-34.905669,-56.182902&amp;spn=0.00483,0.008669&amp;t=h&amp;z=17&amp;om=1&amp;source=embed" style="color: rgb(0, 0, 255); text-align: left;">Ver mapa m&aacute;s grande</a></small></p>\r\n<p>Aqu&iacute; queda la Dinara</p>', '2007-10-14 00:08:36', 0);
 
 -- --------------------------------------------------------
 
@@ -124,13 +124,13 @@ CREATE TABLE `paginas` (
 --
 
 INSERT INTO `paginas` (`id`, `titulo`, `contenido`, `fecha`, `id_usuario`) VALUES
-(1, 'Declaran esencialidad de servicios quirÃºrgicos', 'Tras el Consejo de Ministros', '2007-08-01 01:15:13', 1),
-(3, 'pagina2', 'contenido de la segunda pagina', '2007-08-01 01:25:40', 0),
-(5, 'Primer pÃ¡gina con TinyMCE', 'Mmm... c&oacute;mo se ve esto?', '2007-08-13 20:32:18', 0),
-(6, 'Sin festejos, Fidel cumple aÃ±os', '<img src="http://www.elpais.com.uy/07/08/13/33742_298.JPG" alt="Fidel" title="Fidel Castro" width="298" height="255" align="right" />La Habana', '2007-08-14 01:23:57', 0),
-(7, 'IntroducciÃ³n', 'Uruguay explota recursos naturales pesqueros del Oc&eacute;ano Atl&aacute;ntico Sud Occidental', '2007-08-16 02:22:55', 0),
-(8, 'InvestigaciÃ³n', 'La Investigaci&oacute;n Cient&iacute;fica de los Recursos Pesqueros', '2007-08-16 02:28:01', 0),
-(9, 'PÃ¡gina de 14/10/2007', '<p><em>Nueva p&aacute;gina del d&iacute;a de hoy<img alt="" src="/surforce-cms/public/scripts/fckeditor/editor/images/smiley/msn/cry_smile.gif" /></em></p>', '2007-10-14 00:29:37', 0);
+(1, 'Declaran esencialidad de servicios quirúrgicos', 'Tras el Consejo de Ministros', '2007-08-01 01:15:13', 1),
+(3, 'pagina2', 'contenido de la segunda página', '2007-08-01 01:25:40', 0),
+(5, 'Primer página con TinyMCE', 'Mmm... c&oacute;mo se ve esto?', '2007-08-13 20:32:18', 0),
+(6, 'Sin festejos, Fidel cumple añs', '<img src="http://www.elpais.com.uy/07/08/13/33742_298.JPG" alt="Fidel" title="Fidel Castro" width="298" height="255" align="right" />La Habana', '2007-08-14 01:23:57', 0),
+(7, 'Introducción', 'Uruguay explota recursos naturales pesqueros del Oc&eacute;ano Atl&aacute;ntico Sud Occidental', '2007-08-16 02:22:55', 0),
+(8, 'Investigación', 'La Investigaci&oacute;n Cient&iacute;fica de los Recursos Pesqueros', '2007-08-16 02:28:01', 0),
+(9, 'Página de 14/10/2007', '<p><em>Nueva p&aacute;gina del d&iacute;a de hoy<img alt="" src="/surforce-cms/public/scripts/fckeditor/editor/images/smiley/msn/cry_smile.gif" /></em></p>', '2007-10-14 00:29:37', 0);
 
 -- --------------------------------------------------------
 
