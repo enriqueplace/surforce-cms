@@ -24,9 +24,10 @@
             <tr>
                 <td><?php echo $this->escape($usuario->usuario);?></td>
 
-            <?php if ($this->usuarioLogueado): ?>
+
                 <td><?php echo $this->escape($usuario->nombre);?></td>
                 <td><?php echo $this->escape($usuario->apellido);?></td>
+            <?php if ($this->usuarioLogueado): ?>
                 <td><?php echo $this->escape($usuario->mail);?></td>
                 <td><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/ver/id/<?php echo $usuario->id;?>">Ver</a></td>
                 <td><a href="<?php echo $this->baseUrl; ?>/usuarios/usuarios/modificar/id/<?php echo $usuario->id;?>">Modificar</a></td>

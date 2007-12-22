@@ -1,7 +1,7 @@
 <?php
 class Usuarios_UsuariosController extends Zend_Controller_Action{
-
-    function init(){
+    function init()
+    {
         $this->initView();
         $this->view->baseUrl = $this->_request->getBaseUrl();
         $this->view->setScriptPath('./application/views/scripts/');
@@ -13,13 +13,16 @@ class Usuarios_UsuariosController extends Zend_Controller_Action{
         #asignando el titulo de todo el sitio
         $this->view->title = $this->info->sitio->index->index->titulo;
     }
-
-    function preDispatch(){
+    function preDispatch()
+    {
         $auth = Zend_Auth::getInstance();
         if ($auth->hasIdentity()) {
             $this->view->usuarioLogueado = true;
+        }else{
+            die( "Acceso Restringido");
         }
     }
+
 
     function indexAction(){
         //$info = Zend_Registry::get('personalizacion');
@@ -31,10 +34,6 @@ class Usuarios_UsuariosController extends Zend_Controller_Action{
 
     function agregarAction(){
         //$info = Zend_Registry::get('personalizacion');
-        if( !$this->view->usuarioLogueado){
-            die( $this->info->sitio->usuarios->agregar->msgRestringido);
-        }
-
         $this->view->subtitle = $this->info->sitio->usuarios->agregar->titulo;
         if ($this->_request->isPost()) {
             Zend_Loader::loadClass('Zend_Filter_StripTags');
@@ -78,10 +77,6 @@ class Usuarios_UsuariosController extends Zend_Controller_Action{
 
     function modificarAction(){
         //$info = Zend_Registry::get('personalizacion');
-        if( !$this->view->usuarioLogueado){
-            die( $this->info->sitio->usuarios->modificar->msgRestringido);
-        }
-
         $this->view->subtitle = $this->info->sitio->usuarios->modificar->titulo;
         $eUsuario = new Usuarios();
         if ($this->_request->isPost()) {
@@ -125,10 +120,6 @@ class Usuarios_UsuariosController extends Zend_Controller_Action{
 
     function eliminarAction(){
         //$info = Zend_Registry::get('personalizacion');
-        if( !$this->view->usuarioLogueado){
-            die( $this->info->sitio->usuarios->eliminar->msgRestringido);
-        }
-
         $this->view->subtitle = $this->info->sitio->usuarios->eliminar->titulo;
         $usuario = new Usuarios();
         if ($this->_request->isPost()) {
@@ -151,7 +142,6 @@ class Usuarios_UsuariosController extends Zend_Controller_Action{
             }
         }
         $this->_redirect('/usuarios/usuarios/');
-
     }
 
     function verAction(){
