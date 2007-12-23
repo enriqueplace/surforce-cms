@@ -1,156 +1,158 @@
 <?php
 class Paginas_PaginasController extends Zend_Controller_Action{
 
-	function init(){
-		$this->initView();
-		$this->view->baseUrl = $this->_request->getBaseUrl();
-		$this->view->setScriptPath('./application/views/scripts/');
-		Zend_Loader::loadClass('Paginas');
-		$this->view->user = Zend_Auth::getInstance()->getIdentity();
+    function init(){
+        $this->initView();
+        $this->view->baseUrl = $this->_request->getBaseUrl();
+        $this->view->setScriptPath('./application/views/scripts/');
+        $this->view->setHelperPath('./application/views/helpers/', 'Helper');
 
-		#factorizando la instancia de 'personalizacion'
-		$this->info = Zend_Registry::get('personalizacion');
-		#asignando el titulo de todo el sitio
-		$this->view->title = $this->info->sitio->index->index->titulo;
-	}
+        Zend_Loader::loadClass('Paginas');
+        $this->view->user = Zend_Auth::getInstance()->getIdentity();
 
-	function preDispatch(){
-		$auth = Zend_Auth::getInstance();
-		if ($auth->hasIdentity()) {
-			$this->view->usuarioLogueado = true;
-		}
-	}
+        #factorizando la instancia de 'personalizacion'
+        $this->info = Zend_Registry::get('personalizacion');
+        #asignando el titulo de todo el sitio
+        $this->view->title = $this->info->sitio->index->index->titulo;
+    }
 
-	function indexAction(){
-		//$info = Zend_Registry::get('personalizacion');
-		$this->view->subtitle = $this->info->sitio->paginas->index->titulo;
-		$paginas = new Paginas();
-		$this->view->paginas = $paginas->fetchAll();
-		$this->render();
-	}
+    function preDispatch(){
+        $auth = Zend_Auth::getInstance();
+        if ($auth->hasIdentity()) {
+            $this->view->usuarioLogueado = true;
+        }
+    }
 
-	function agregarAction(){
-		//$info = Zend_Registry::get('personalizacion');
-		if( !$this->view->usuarioLogueado){
-			die( $this->info->sitio->paginas->agregar->msgRestringido);
-		}
+    function indexAction(){
+        //$info = Zend_Registry::get('personalizacion');
+        $this->view->subtitle = $this->info->sitio->paginas->index->titulo;
+        $paginas = new Paginas();
+        $this->view->paginas = $paginas->fetchAll();
+        $this->render();
+    }
 
-		$this->view->subtitle = $this->info->sitio->paginas->agregar->titulo;
+    function agregarAction(){
+        //$info = Zend_Registry::get('personalizacion');
+        if( !$this->view->usuarioLogueado){
+            die( $this->info->sitio->paginas->agregar->msgRestringido);
+        }
 
-		if ($this->_request->isPost()) {
-			Zend_Loader::loadClass('Zend_Filter_StripTags');
-			$filter 	= new Zend_Filter_StripTags();
+        $this->view->subtitle = $this->info->sitio->paginas->agregar->titulo;
 
-			$titulo 	= trim($filter->filter($this->_request->getPost('titulo')));
-			$contenido 	= $this->_request->getPost('contenido');
+        if ($this->_request->isPost()) {
+            Zend_Loader::loadClass('Zend_Filter_StripTags');
+            $filter 	= new Zend_Filter_StripTags();
 
-			if( $titulo != '' && $contenido ) {
-				$data = array(
-					'titulo' 	=> $titulo,
-					'contenido' 	=> $contenido
-				);
-				$pagina = new Paginas();
-				$pagina->insert( $data );
-				$this->_redirect('/paginas/paginas/');
-				return;
-			}
-		}
+            $titulo 	= trim($filter->filter($this->_request->getPost('titulo')));
+            $contenido 	= $this->_request->getPost('contenido');
 
-		$this->view->pagina = new stdClass();
-		$this->view->pagina->id = null;
-		$this->view->pagina->titulo = '';
-		$this->view->pagina->contenido = '';
+            if( $titulo != '' && $contenido ) {
+                $data = array(
+                    'titulo' 	=> $titulo,
+                    'contenido' 	=> $contenido
+                );
+                $pagina = new Paginas();
+                $pagina->insert( $data );
+                $this->_redirect('/paginas/paginas/');
+                return;
+            }
+        }
 
-		$this->view->action = $this->info->sitio->paginas->agregar->action;
-		$this->view->buttonText = $this->info->sitio->paginas->agregar->buttonText;
-		$this->render();
-	}
+        $this->view->pagina = new stdClass();
+        $this->view->pagina->id = null;
+        $this->view->pagina->titulo = '';
+        $this->view->pagina->contenido = '';
 
-	function modificarAction(){
-		//$info = Zend_Registry::get('personalizacion');
-		if( !$this->view->usuarioLogueado){
-			die( $this->info->sitio->paginas->modificar->msgRestringido);
-		}
+        $this->view->action = $this->info->sitio->paginas->agregar->action;
+        $this->view->buttonText = $this->info->sitio->paginas->agregar->buttonText;
+        $this->render();
+    }
 
-		$this->view->subtitle = $this->info->sitio->paginas->modificar->titulo;
-		$eNoticia = new Paginas();
-		if ($this->_request->isPost()) {
-			Zend_Loader::loadClass('Zend_Filter_StripTags');
+    function modificarAction(){
+        //$info = Zend_Registry::get('personalizacion');
+        if( !$this->view->usuarioLogueado){
+            die( $this->info->sitio->paginas->modificar->msgRestringido);
+        }
 
-			$filter = new Zend_Filter_StripTags();
+        $this->view->subtitle = $this->info->sitio->paginas->modificar->titulo;
+        $eNoticia = new Paginas();
+        if ($this->_request->isPost()) {
+            Zend_Loader::loadClass('Zend_Filter_StripTags');
 
-			$id 			= 	(int)$this->_request->getPost('id');
-			$titulo	 	= trim($filter->filter($this->_request->getPost('titulo')));
-			$contenido	= trim( $this->_request->getPost('contenido'));
+            $filter = new Zend_Filter_StripTags();
 
-			if ($id !== false) {
-				if ($titulo != '' && $contenido != '' ) {
-					$data = array(
-						'titulo' 	=> $titulo,
-						'contenido' 	=> $contenido
-					);
-					$where = 'id = ' . $id;
-					$eNoticia->update($data, $where);
-					$this->_redirect('/paginas/paginas/');
-					return;
-				} else {
-					$this->view->paginas = $eNoticia->fetchRow('id='.$id);
-				}
-			}
-		} else {
-			$id = (int)$this->_request->getParam('id', 0);
-			if ($id > 0) {
-				$this->view->pagina = $eNoticia->fetchRow('id='.$id);
-			}
-		}
-		$this->view->action = $this->info->sitio->paginas->modificar->action;
-		$this->view->buttonText = $this->info->sitio->paginas->modificar->buttonText;
+            $id 			= 	(int)$this->_request->getPost('id');
+            $titulo	 	= trim($filter->filter($this->_request->getPost('titulo')));
+            $contenido	= trim( $this->_request->getPost('contenido'));
 
-		$this->render();
-	}
+            if ($id !== false) {
+                if ($titulo != '' && $contenido != '' ) {
+                    $data = array(
+                        'titulo' 	=> $titulo,
+                        'contenido' 	=> $contenido
+                    );
+                    $where = 'id = ' . $id;
+                    $eNoticia->update($data, $where);
+                    $this->_redirect('/paginas/paginas/');
+                    return;
+                } else {
+                    $this->view->paginas = $eNoticia->fetchRow('id='.$id);
+                }
+            }
+        } else {
+            $id = (int)$this->_request->getParam('id', 0);
+            if ($id > 0) {
+                $this->view->pagina = $eNoticia->fetchRow('id='.$id);
+            }
+        }
+        $this->view->action = $this->info->sitio->paginas->modificar->action;
+        $this->view->buttonText = $this->info->sitio->paginas->modificar->buttonText;
 
-	function eliminarAction(){
-		//$info = Zend_Registry::get('personalizacion');
-		if( !$this->view->usuarioLogueado){
-			die( $this->info->sitio->paginas->eliminar->msgRestringido);
-		}
+        $this->render();
+    }
 
-		$this->view->subtitle = $this->info->sitio->paginas->eliminar->titulo;
-		$pagina = new Paginas();
+    function eliminarAction(){
+        //$info = Zend_Registry::get('personalizacion');
+        if( !$this->view->usuarioLogueado){
+            die( $this->info->sitio->paginas->eliminar->msgRestringido);
+        }
 
-		if ($this->_request->isPost()) {
-			Zend_Loader::loadClass('Zend_Filter_Alpha');
-			$filter = new Zend_Filter_Alpha();
+        $this->view->subtitle = $this->info->sitio->paginas->eliminar->titulo;
+        $pagina = new Paginas();
 
-			$id 	= (int)$this->_request->getPost('id');
-			$del 	= $filter->filter($this->_request->getPost('del'));
+        if ($this->_request->isPost()) {
+            Zend_Loader::loadClass('Zend_Filter_Alpha');
+            $filter = new Zend_Filter_Alpha();
 
-			if ($del == 'Si' && $id > 0) {
-				$where = 'id = ' . $id;
-				$rows_affected = $pagina->delete($where);
-			}
-		} else {
-			$id = (int)$this->_request->getParam('id');
-			if ($id > 0) {
-				$this->view->pagina = $pagina->fetchRow('id='.$id);
-				if ($this->view->pagina->id > 0) {
-					$this->render();
-					return;
-				}
-			}
-		}
-		$this->_redirect('/paginas/paginas/');
-	}
+            $id 	= (int)$this->_request->getPost('id');
+            $del 	= $filter->filter($this->_request->getPost('del'));
 
-	function verAction(){
-		//$info = Zend_Registry::get('personalizacion');
-		$this->view->subtitle = $this->info->sitio->paginas->ver->titulo;
-		$pagina = new Paginas();
-		$id = (int)$this->_request->getParam('id', 0);
-		if ($id > 0) {
-			$this->view->pagina = $pagina->fetchRow('id='.$id);
-		}
-		$this->render();
-	}
+            if ($del == 'Si' && $id > 0) {
+                $where = 'id = ' . $id;
+                $rows_affected = $pagina->delete($where);
+            }
+        } else {
+            $id = (int)$this->_request->getParam('id');
+            if ($id > 0) {
+                $this->view->pagina = $pagina->fetchRow('id='.$id);
+                if ($this->view->pagina->id > 0) {
+                    $this->render();
+                    return;
+                }
+            }
+        }
+        $this->_redirect('/paginas/paginas/');
+    }
+
+    function verAction(){
+        //$info = Zend_Registry::get('personalizacion');
+        $this->view->subtitle = $this->info->sitio->paginas->ver->titulo;
+        $pagina = new Paginas();
+        $id = (int)$this->_request->getParam('id', 0);
+        if ($id > 0) {
+            $this->view->pagina = $pagina->fetchRow('id='.$id);
+        }
+        $this->render();
+    }
 }
 ?>
