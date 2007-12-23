@@ -7,7 +7,7 @@
 
             <div class="menu-opciones">
                    <ul>
-                       <li><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/agregar">Agregar noticia</a></li>
+                       <li><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/agregar">Agregar nueva Noticia</a></li>
                    </ul>
             </div>
             <br/><br/>
@@ -17,21 +17,20 @@
       foreach( $this->noticias as $noticia ) : ?>
 
         <div id="noticia">
+             <?php if ($this->usuarioLogueado): ?>
+                <br>
+                <div class="menu-opciones">
+                      <ul>
+                        <li><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/modificar/id/<?php echo $noticia->id;?>">Modificar Noticia</a></li>
+                        <li><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/eliminar/id/<?php echo $noticia->id;?>">Eliminar Noticia</a></li>
+                    </ul>
+                </div>
+                <br><br>
+            <?php endif; ?>
             <div id="noticia-titulo"><?php echo $this->escape($noticia->titulo);?></div>
             <div id="noticia-fecha"><?php echo $this->escape($noticia->fecha);?></div>
             <div id="noticia-contenido"><?php echo $noticia->contenido;?></div>
 
-            <?php if ($this->usuarioLogueado): ?>
-                <br>
-                <div class="menu-opciones">
-                      <ul>
-                        <!-- <li><strong>Acciones:</strong></li> -->
-                        <li><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/ver/id/<?php echo $noticia->id;?>" id="primero">Ver</a></li>
-                        <li><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/modificar/id/<?php echo $noticia->id;?>">Modificar</a></li>
-                        <li><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/eliminar/id/<?php echo $noticia->id;?>">Eliminar</a></li>
-                    </ul>
-                </div>
-            <?php endif; ?>
         <div class="div-reset"></div>
         </div>
 
@@ -40,7 +39,7 @@
 
     <?php if ($this->usuarioLogueado): ?>
           <div class="menu-opciones">
-                   <ul><li><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/agregar">Agregar noticia</a></li></ul>
+                   <ul><li><a href="<?php echo $this->baseUrl; ?>/noticias/noticias/agregar">Agregar nueva Noticia</a></li></ul>
             </div>
     <?php endif; ?>
 
