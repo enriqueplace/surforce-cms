@@ -18,6 +18,8 @@ class Menu_MenuController extends Zend_Controller_Action{
         $auth = Zend_Auth::getInstance();
         if ($auth->hasIdentity()) {
             $this->view->usuarioLogueado = true;
+        }else{
+            die( 'Acceso Restringido' );
         }
     }
 
@@ -34,8 +36,8 @@ class Menu_MenuController extends Zend_Controller_Action{
         if(!$this->view->usuarioLogueado){
             die($this->info->sitio->menu->agregar->msgRestringido);
         }
-        // Si desde el ABM de páginas quiero guardar la página
-        // directamente como una opción en el menú
+        // Si desde el ABM de pï¿½ginas quiero guardar la pï¿½gina
+        // directamente como una opciï¿½n en el menï¿½
         $pagina_id = (int)$this->_request->getParam('pagina');
         if( $pagina_id ){
             Zend_Loader::loadClass('Paginas');
